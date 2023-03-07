@@ -5,9 +5,9 @@
 
 namespace cube {
     arma::mat c(int dim) {
-        int col_number = 1 << dim;
+        int64_t col_number = 1 << dim;
         arma::mat cube(dim, col_number, arma::fill::zeros);
-        for (int col = 1; col < col_number; ++col) {
+        for (int64_t col = 1; col < col_number; ++col) {
             int helper = col;
             for (int row = dim - 1; row >= 0; --row) {
                 cube(row, col) = helper & 1;
