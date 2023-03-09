@@ -4,7 +4,7 @@
 #include <armadillo>
 #include <vector>
 
-namespace cube {
+namespace cubens {
     template<typename T>
     arma::Mat<T> c(int dim) {
         int64_t col_number = 1 << dim;
