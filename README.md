@@ -1,2 +1,2 @@
-# Correlating-Vectors-Research
-Research about applying correlation inequality to particular combinatorial problem
+# Binary Scalar Products Research
+Research about applying correlation inequality and other methods to a particular combinatorial problem
