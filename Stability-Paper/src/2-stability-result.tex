@@ -24,7 +24,8 @@ Another observation is that projecting one family on the linear span of a subset
 \[
     \aaa_i=\left\{a \in \aaa:\left\langle a, b_d\right\rangle=i\right\} \text{ for } i=0, 1.
 \]
-The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, \textcolor{red}{Is it important?}  if important, will be specified at a later stage. We denote the orthogonal projection onto $U=b_d^\bot$ by $\pi: \mathbb{R}^d \rightarrow U$. We say that $X\subset \R^d$ does not contain opposite points if  $\{x,-x\}\subseteq X$ is only possible if $x=\zero$. Below, we state the claims and inequalities from \cite{kupavskii22}.
+The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, in cases where it is important, will be specified at a later stage. %\textcolor{red}{Is it important?} Yes, for example in the final case of the main proof we choose b_d to have the smalles size of A_1
+We denote the orthogonal projection onto $U=b_d^\bot$ by $\pi: \mathbb{R}^d \rightarrow U$. We say that $X\subset \R^d$ does not contain opposite points if  $\{x,-x\}\subseteq X$ is only possible if $x=\zero$. Below, we state the claims and inequalities from \cite{kupavskii22}.
 
 \begin{restatable}{claim}{claimassumptions}
     \label{cl1}
@@ -79,6 +80,9 @@ We denote the linear span of $\aaa_0$ by $U_0$ and define the orthogonal project
 \begin{restatable}{claim}{claimaaaibbi}\label{cl5}
     For $i=0, 1$, we have $\left|\aaa_i\right|\left|\bb_i\right| \leq 2^d$.
 \end{restatable}
+
+% Inequality~\ref{in1} an Claim~\ref{cl5} are used in~\cite{kupavskii22} to obtain their main result
+%\oldMainTh*
 
 \noindent Looking at the definition of $\bb_i$, we see that we can assume both  $\zero, b_d \in \bb_0$ or $\zero, b_d \in \bb_1$. Therefore, claim \ref{cl5} actually implies
 \begin{equation}\label{stronger5}
