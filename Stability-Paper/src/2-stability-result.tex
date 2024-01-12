@@ -1,0 +1,366 @@
+\section{Stability results}\label{secStability}
+
+Let $\aaa, \bb$ both linearly span $\R^d$ and have binary scalar products, that is, $\la a, b \ra \in \{0,1\}$ for all $a \in \aaa$ and $b \in \bb$. We will use the following two simple observations a few times throughout our proofs. Let $a_1, \ldots, a_d$ be a basis of $\R^d$ contained in $\aaa$, consider the dual basis $a_1^*, \ldots, a_d^*$:
+
+\[
+    \la a_i, a_j^* \ra = 
+    \begin{cases}
+        1,\, i = j \\
+        0,\, i\neq j
+    \end{cases}
+\]
+and observe that elements of $\bb$ have $0/1$ coordinates when expressed in this dual basis, or, in other words, $\bb$ is a subset of what we would call a cube: 
+\[
+    \bb \subseteq \left\{\sum_{i=1}^d \delta_i a_i^*, \text{ where } \delta_i \text{ range over } \{0, 1\}\right\}.
+\]
+Another observation is that projecting one family on the linear span of a subset of another preserves the binary scalar products property: if $\aaa' \subseteq \aaa$ and $\pi_{\aaa'}: \R^d \rightarrow \operatorname{span}(\aaa')$ is the orthogonal projection, then
+\[
+    \forall a \in \aaa',\, b \in \bb:\: \la a, \pi_{\aaa'}(b) \ra = \la a, b \ra \in \{0,1\}. 
+\]
+
+\noindent We will now introduce some notation and restate some claims proved in \cite{kupavskii22}. Proofs of those claims and inequalities are provided in Section \ref{secClaims} for completeness.
+
+\noindent Since we are interested in bounding the product $|\aaa||\bb|$ from above, we will assume that $\aaa$ and $\bb$ are inclusion-wise maximal with respect to the property of having binary scalar products. Let $b_d \in \bb \setminus \{\zero\}$ be a vector with the maximum value of $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, where 
+\[
+    \aaa_i=\left\{a \in \aaa:\left\langle a, b_d\right\rangle=i\right\} \text{ for } i=0, 1.
+\]
+The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, if important, will be specified at a later stage. We denote the orthogonal projection onto $U=b_d^\bot$ as $\pi: \mathbb{R}^d \rightarrow U$. By $X\subset \R^d$ not containing opposite points we mean that $\{x,-x\}\subseteq X$ is only possible if $x=\zero$. 
+
+\begin{restatable}{claim}{claimassumptions}
+    \label{cl1}
+    We may translate $\aaa$ and replace some points in $\bb$ by their negatives such that the following holds.
+    \begin{itemize}
+        \item[(i)] We can still write $\aaa = \aaa_0 \cup \aaa_1$, where $\aaa_i = \{ a \in \aaa : \la a, b_d\ra = i\}$ for $i=0,1$ such that
+            \begin{equation} \label{eqa0gea1}
+                |\aaa_0| \ge |\aaa_1|.
+            \end{equation}
+        \item[(ii)] We still have
+            \begin{equation}
+                \label{eqscala0}
+                \la a, b\ra \in \{0,1\} \text{ for each } a \in \aaa_0 \text{ and } b \in \bb.
+            \end{equation}
+        \item[(iii)] The set $\pi(\bb)$ does not contain opposite points.
+    \end{itemize}
+\end{restatable}
+
+\begin{restatable}{claim}{claimpreimagespi}\label{cl2}
+   Every point in $\pi(\bb)$ has at most two preimages in $\bb$.
+\end{restatable}
+
+\begin{restatable}{inequality}{ineqbasic}\label{in0}
+   $\left|\aaa\right|\left|\bb\right| \leq 2\left|\aaa_0\right||\pi(\bb)|+\left|\aaa_1\right|\left|\bb \backslash \bb_*\right|$
+\end{restatable}
+
+\noindent We denote the linear span of $\aaa_0$ as $U_0$ and introduce the orthogonal projection $\tau: U \rightarrow U_0$. Let $\bb_* \subseteq \bb$ be the set of $b \in \bb$ for which $\pi(b)$ has exactly one pre-image under projection onto $U$.
+
+\begin{restatable}{claim}{claimpreimagestau}\label{cl3}
+    $\left|\pi(\bb)\right| \leq 2^{d-1-\operatorname{dim} U_0}\left|\tau(\pi(\bb))\right|$.
+\end{restatable}
+
+\begin{restatable}{claim}{claimrestbbconstant}\label{cl4}
+    $\bb \backslash \bb_* $ can be partitioned as $ \bb_0 \sqcup \bb_1$, with $\bb_0, \bb_1$ satisfying
+    \[
+        \forall b\in\bb_i: \left|\left\{\langle a, b\rangle: a \in \aaa_i\right\}\right|=1\text{ for }i=0, 1
+    \]
+\end{restatable}
+
+\begin{restatable}{inequality}{ineqkey}\label{in1}
+    $\left|\aaa\right| \cdot\left|\bb\right| \leq \left(\operatorname{dim} U_0+1\right) 2^d+\left|\aaa_0\right|\left|\bb_0\right|+\left|\aaa_1\right|\left|\bb_1\right|$
+\end{restatable}
+
+\begin{restatable}{inequality}{ineqforclfive}\label{ineqForCl5}
+    For $i = 0,1$ we have 
+    \[
+        |\aaa_i| \leq 2^{\operatorname{dim}(\aaa_i)},\;|\bb_i| \leq 2^{\operatorname{dim}(\operatorname{span}(\bb_i))} \text{, and } \operatorname{dim}(\aaa_i) + \operatorname{dim}\bigl(\operatorname{span}(\bb_i)\bigl) \leq d
+    \]
+\end{restatable}
+
+\begin{restatable}{claim}{claimaaaibbi}\label{cl5}
+    For $i=0, 1$, we have $\left|\aaa_i\right|\left|\bb_i\right| \leq 2^d$.
+\end{restatable}
+
+\noindent Note that we can assume both  $\zero, b_d \in \bb_0$ or $\zero, b_d \in \bb_1$. Therefore, claim \ref{cl5} actually implies
+\begin{equation}\label{stronger5}
+    \left|\aaa_1\right|\left|\bb_1\right| \leq 2^d,\; \left|\aaa_0\right|\left(\left|\bb_0\right|+2\right)\leq 2^d,
+\end{equation}
+assuming here and further that $\zero, b_d \in \bb_1$.
+
+\noindent We will now understand under which conditions equality is achieved in Theorem \ref{d_plus_one_two_d}.
+
+\begin{theorem}\label{uniq}
+    Let $\aaa,\bb \subseteq \R^d$ both linearly span $\R^d$ such that $\la a, b\ra \in \{0,1\}$ holds for all $a \in \aaa$, $b \in \bb$. Then we only have $|\aaa| \cdot |\bb| = (d+1) 2^d$ if one of the families has size $d+1$ and the other is affinely isomorphic to $\{0,1\}^d$.
+\end{theorem}
+\begin{proof}
+     Without loss of generality, we assume $\left|\aaa\right| \geq \left|\bb\right|$. We will use induction on $d$, the statement is obvious in dimension $1$. Assuming the statement holds for smaller dimensions, we prove it in dimension $d$. Consider two options for $\operatorname{dim}U_0$:
+    \begin{enumerate}
+        \item $\operatorname{dim}U_0 \leq d-2$. From Inequality \ref{in1} and \eqref{stronger5}, we get:
+        \begin{equation*}
+            \left|\aaa\right| \cdot\left|\bb\right| \leq 
+            \left(d - 1\right) 2^d + 2\cdot2^d - 2\left|\aaa_0\right| \leq
+            \left(d + 1\right) 2^d - \left|\aaa\right| < \left(d + 1\right) 2^d
+        \end{equation*}
+        \item $\operatorname{dim}U_0 = d-1$. Note that since $\zero \in \aaa_0$, definition of $\bb_0$ implies $\bb_0 \subset U_0^\bot$, and thus here, assuming $\zero, b_d \in \bb_1$, we have $\bb_0 = \varnothing$. We consider two subcases:
+        \begin{enumerate}
+            \item[a)]\label{uniqfirstcase} $\bb_*\neq\varnothing$. Equality in Theorem \ref{d_plus_one_two_d} can only be achieved when Inequality \ref{in1} (and consequently Inequality \ref{in0}) are tight, which is only the case when  $\left|\aaa_0\right|\left|\pi(\bb)\right|=d 2^{d-1}$ (and $\left|\aaa_0\right|=\left|\aaa_1\right|$). By the induction hypothesis, the former is possible in one of two cases:
+            \begin{enumerate}
+                \item[i)] $\aaa_0$ is affinely isomorphic to $\{0,1\}^{d-1}$. Then, $\left|\aaa\right|=\left|\aaa_0\right|+\left|\aaa_1\right|=2^d$, which is only possible if $\aaa$ is affinely isomorphic to $\{0,1\}^d$, and then $\bb$ can only consist of a basis and the zero vector.
+                \item[ii)] $\left|\aaa_0\right|=d$. Then, since $\left|\bb\right|\leq\left|\aaa\right|=2d$,  $\left|\aaa\right|\cdot\left|\bb\right|\leq4d^2$, which is less than $(d+1)2^d$ for $d\geq4$. For $d=3$, the inequality $\left|\bb\right|\cdot\left|\aaa\right|\leq32$ cannot yield equality since $\left|\aaa\right|=6$. Finally, for $d=2$, we have $\left|\aaa\right|\cdot\left|\bb\right|\leq\left|\aaa\right|^2=9<3\cdot2^2$.
+            \end{enumerate}
+            \item [b)] $\bb_*=\varnothing$. Then, $\bb_1 = \bb$ and, consequently, $\operatorname{dim}(\operatorname{span}(\bb_1))=d$. In this case Inequality \ref{ineqForCl5} implies $|\aaa_1|=1$.
+            Similarly to case a), Inequality \ref{in0} is only tight in one of the following cases:
+            \begin{enumerate}
+                \item[i)]$\left|\aaa_0\right|=d$. Then, $|\aaa|\cdot|\bb| \leq |\aaa|^2 \leq \left(d+1\right)^2<\left(d+1\right)2^d$.
+                \item[ii)]$\left|\aaa_0\right|=2^{d-1}\text{, }\left|\pi(\bb)\right|=d$. Then, $\left|\aaa\right|\cdot\left|\bb\right|=2d\left(2^{d-1}+1\right)$, which is less than $(d+1)2^d$ for $d>2$. For $d=2$, we have $\left|\aaa\right|\cdot\left|\bb\right|\leq\left|\aaa\right|^2=9<3\cdot2^2$.
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\noindent We will improve the bound on $\left|\aaa\right|\cdot\left|\bb\right|$ for families that differ from the extremal example. To do this, we will use an auxiliary 
+
+\begin{restatable}{inequality}{dfInequality}\label{in2}
+    For an integer $2\leq f\leq d$, we have: \[(d+f)(2^{d-1}+2^{d-f})\leq d2^d + 2d.\]
+\end{restatable}
+
+\noindent 
+A short but technical proof of this inequality can be found in Appendix \ref{appendix}.
+
+\mainth*
+\begin{proof}
+    As in the proof of Theorem \ref{uniq}, we will use induction on $d$, and without loss of generality assume that $\left|\aaa\right|\geq\left|\bb\right|$. Note that we can also assume that $\aaa$ and $\bb$ are inclusion-wise maximal with respect to the property of having binary scalar products. For $d<3$, the estimate coincides with Theorem \ref{d_plus_one_two_d}. Assuming validity for smaller dimensions, let us prove the statement for dimension $d$. We consider possible values of $\operatorname{dim}U_0$:
+
+    \begin{enumerate}
+        \item $\operatorname{dim}U_0 < d-2$. Then, from Inequality \ref{in1} and Claim \ref{cl5}, we have:
+        \begin{equation}\label{strongWhenLessd-2}
+            \left|\aaa\right|\cdot\left|\bb\right| \leq \left(\operatorname{dim} U_0 + 1\right) 2^d + 2^d + 2^d\leq d 2^d
+        \end{equation}
+        \item $\operatorname{dim}U_0 = d-2$. Applying the induction hypothesis to the families $\tau(\pi(\bb))$ and $\aaa_0$, we have three cases:
+        \begin{enumerate}
+            \item[a)] $|\tau(\pi(\bb))|=d-1$. By maximality $\bb$ contained $\zero$, so $\tau(\pi(\bb))$ consists of zero and the basis of $U_0$. Maximality of $\aaa$ now means that $\aaa_0$ is affinely isomorphic to $\{0,1\}^{d-2}$. From \eqref{stronger5}, it follows that $\left|\bb_0\right|\leq2$. If $b\in\bb_0$, then both elements of $\pi^{-1}(\pi(b))$ can be assumed to be in $\bb_0$, thus $\left|\bb_0\right|$ is even and we have two scenarios:
+            \begin{enumerate}
+                \item[i)] $\left|\bb_0\right|=0$. Then, from Inequality \ref{in0} and Claim \ref{cl5}, we obtain:
+                \begin{equation*}
+                    \left|\aaa\right|\cdot\left|\bb\right|\leq4\left(d-1\right)2^{d-2}+2^d=d 2^d
+                \end{equation*}
+                \item[ii)] $\left|\bb_0\right|=2$. $U_0^{\bot} \cap \bb$ consists of $\zero, b_d$ and two vectors from $\bb_0$. Let $k+1$ vectors in $\tau(\pi(\bb))$ have two preimages in $\pi(\bb)$ under the action of $\tau$. Among these $k+1$, let $t_2$ be the number of those vectors with both preimages in $\pi(\bb_1)$, and let $t_1+1$ be the number of those with exactly one preimage in $\pi(\bb_1)$ (including zero). The remaining $k-t_1-t_2$ have both preimages in $\pi(\bb_*)$. Furthermore, let the vectors in $\tau(\pi(\bb))$ with a single preimage under $\tau$ consist of $q$ projections from $\pi(\bb_1)$ and $d-2-k-q$ projections from $\pi(\bb_*)$. We then have:
+                \begin{equation*}
+                    \begin{split}
+                        \left|\bb\right|
+                        & = \left|\bb_*\right|+\left|\bb_0\right|+\left|\bb_1\right| \\
+                        & = (k-t_1-2t_2+d-2-q)+2+(2+4t_2+2t_1+2q) \\ 
+                        & = d + k + q + t_1 + 2t_2 + 2
+                    \end{split}
+                \end{equation*}
+                First, consider the case when $t_2 > 0$. Then $\pi(\bb_1)$ contains two elements that differ by a vector orthogonal to $U_0$, thus $U_0^\bot\subset\operatorname{span}(\bb_1)$, which implies:
+                \begin{equation*}
+                    \begin{split}
+                        \operatorname{dim}(\operatorname{span}(\bb_1)) &= t_1+t_2+q+2 \;\stackrel{\ref{ineqForCl5}}{\Longrightarrow}\; \left|\aaa_1\right|\leq2^{d-t_1-t_2-q-2}\text{,} \\
+                    \left|\aaa\right| &= \left|\aaa_0\right| + \left|\aaa_1\right| \leq 2^{d-2} + 2^{d-2-t_1-t_2-q}
+                    \end{split}  
+                \end{equation*}
+                
+                \begin{align}
+                    \left|\aaa\right|\cdot\left|\bb\right| 
+                    & \leq \left(2^{d-2} + 2^{d-2-t_1-t_2-q}\right)\left(d+k+q+t_1+2t_2+2\right) \nonumber \\ 
+                    & \leq \left(2^{d-2} + 2^{d-2-t_1-t_2-q}\right)\left(2d+t_1+2t_2\right) \label{mid1} \\
+                    & \leq \left(2^{d-1} + 2^{d-1-t_1-t_2-q}\right)\left(d+t_1+t_2\right) \nonumber \\
+                    & \leq \left(2^{d-1} + 2^{d-1-t_1-t_2}\right)\left(d+t_1+t_2\right) \label{mid2} \\
+                    & \leq \left(2^{d-1} + 2^{d-1-t_1-t_2}\right)\left(d+t_1+t_2+1\right) \nonumber \\
+                    & \leq d2^d + 2d. \label{mid3}             
+                \end{align}
+                Here, the second inequality follows from $k+q\leq d-2$, and the last one follows from Inequality \ref{in2}. If $t_2=0$, we get a slightly weaker bound:
+                \begin{equation*}
+                    \operatorname{dim}(\operatorname{span}(\bb_1)) \geq t_1+t_2+q+1
+                \end{equation*}
+                With the same reasoning this means that \eqref{mid2} becomes $\left(2^{d-1} + 2^{d-t_1}\right)\left(d+t_1\right)$, which is still less than \eqref{mid3} when $t_1\geq2$ due to Inequality \ref{in2}. Finally, when $t_2=0$ and $t_1=0, 1$, expression \eqref{mid1} yields a bound by $d2^d$ and $(2^{d-2}+2^{d-3})(2d+1)=d 2^d - \left(d-\frac{3}{2}\right)2^{d-2}\leq d2^d$, respectively.
+            \end{enumerate}
+            \item[b)] $|\aaa_0|=d-1$. Then:
+            \begin{equation*}
+                |\aaa|\cdot|\bb|\leq|\aaa|^2\leq4|\aaa_0|^2\leq4(d-1)^2\leq d2^d+2d 
+            \end{equation*}
+            \item[c)] Both $|\aaa_0|$ and $|\tau(\pi(\bb))|$ are at least $d$. By induction this implies 
+            \[
+            \left|\aaa_0\right|\cdot\left|\tau(\pi(\bb))\right|\leq2\left(d-2\right)\left(2^{d-3}+1\right).
+            \]
+            Using Inequality \ref{in0}, claim \ref{cl3}, and \eqref{stronger5}, we have 
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right| \leq 4\cdot\left(d-2\right)\left(2^{d-2}+2\right)+2 \cdot 2^d - 2\left|\aaa_0\right| = 2d(2^{d-1}+1)+2\left(3d-8-\left|\aaa_0\right|\right)
+            \end{equation*}
+            This completes the proof when $\left|\aaa_0\right|\geq3d-8$. Otherwise,
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right| \leq \left|\aaa\right|^2 \leq 4\left|\aaa_0\right|^2 \leq 4\left(3d-9\right)^2,
+            \end{equation*}
+            which is less than $d2^d+2d$ for $d\geq3$. 
+        \end{enumerate}
+        \item $\operatorname{dim}U_0 = d-1$. Again, applying the induction hypothesis to $\pi(\bb)$ and $\aaa_0$, we have three cases (recall that from the assumption $\zero,b_d\in\bb_1$, we have $\bb_0=\varnothing$):
+        \begin{enumerate}
+            \item[a)] $|\pi(\bb)|=d$, which by maximality of $\aaa$ means that $\aaa_0$ is isomorphic to $\{0,1\}^{d-1}$.
+            \begin{enumerate}
+                \item[i)] $\operatorname{dim}\bb_1=1$. In this case, $\left|\bb\right|=d+1$, which does not satisfy the condition in the theorem's statement.
+                \item[ii)] $\operatorname{dim}\bb_1=k\geq2$. Then $\left|\bb_1\right|=2k$, $\left|\aaa_1\right|\leq2^{d-k}$ from Inequality \ref{ineqForCl5}, and we have:
+                \begin{equation*}
+                    \left|\aaa\right|\cdot\left|\bb\right|\leq(2^{d-1}+2^{d-k})(d+k) \leq d2^d+2d
+                \end{equation*}
+                by Inequality \ref{in2}.
+            \end{enumerate}
+            \item[b)] $\left|\aaa_0\right|=d$. Then $|\aaa||\bb|\leq|\left|\aaa\right|^2\leq4|\aaa_0|^2\leq4d^2$, which is not larger than $d2^d+2d$ for $d>3$. For $d=3$, $|\aaa|^2$ gives the desired bound when $|\aaa_1|\leq2$, and finally $\aaa_1=3$ would by Inequality \ref{ineqForCl5} imply 
+            \[
+                \operatorname{dim}\aaa_1=2 \Rightarrow |\bb_1|=2 \Rightarrow |\bb|\leq 5 \Rightarrow |\aaa|\cdot|\bb|\leq 3\cdot 2^3 + 2\cdot 3
+            \]
+            \item[c)] Both $\left|\aaa_0\right|$ and $\left|\pi(\bb)\right|$ are at least $d+1$.
+        \end{enumerate}
+    \end{enumerate}
+    The remainder of the proof will deal with the case 3c). By the induction hypothesis, \begin{equation*}
+            \left|\aaa_0\right|\cdot\left|\pi(\bb)\right|\leq\left(d-1\right)\left(2^{d-1}+2\right).
+        \end{equation*}
+        Therefore from the fact that $\bb_0 = \varnothing$ and Claim \ref{cl5}, we have 
+        \begin{align}
+            \left|\aaa\right|\cdot\left|\bb\right|&=2\left|\aaa_0\right|\left|\pi(\bb)\right|+\left|\aaa_1\right|\left|\bb_1\right|-\left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| \label{general} \\
+            & \leq 2\left(d-1\right)\left(2^{d-1}+2\right)+\left|\aaa_1\right|\left|\bb_1\right|-\left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| \label{general_ind} \\
+            & \leq 2\left(d-1\right)\left(2^{d-1}+2\right)+2^{d}-\left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| \nonumber \\
+            & = d 2^{d} + 2d - \left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| + (2d-4). \label{2d_minus_4}
+        \end{align}
+        
+        \noindent Thus, it suffices to show, for example, that 
+        $\left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right|\geq 2d-4$. \\
+        \noindent Consider the case where $\operatorname{dim}\aaa_1=d-1$: then $\bb_1=\{0,b_d\}$, and using 
+        \begin{equation*}
+            \left|\aaa\right|\cdot\left|\bb\right|=\left|\aaa\right|\left|\pi(\bb)\right|+\left|\aaa\right|\cdot\frac{1}{2}\left|\bb_1\right|\leq d 2^d + 2d - 2^d + \left|\aaa\right|+(2d-4)
+        \end{equation*}
+        we obtain the desired inequality when $\left|\aaa\right|\leq 2^d-2d+4 $. Note that $\left|\aaa\right|> 2^d-2d+4$ is indeed impossible, as that would imply
+        \begin{equation*}
+            \left|\aaa_0\right|\cdot\left|\pi(\bb)\right| > (2^{d-1}-d+2)\cdot(d+1)\geq(d-1)(2^{d-1}+2)
+        \end{equation*}
+        which contradicts the induction hypothesis. We may thus now assume $\operatorname{dim}A_1<d-1 $. Observe that, due to this, we can also assume that $\left|\aaa_0\right|>\left|\aaa_1\right|$, since in the case that $\left|\aaa_0\right|=\left|\aaa_1\right|$ no shifting was performed in Claim \ref{cl1} and we can start by shifting the family $\aaa$ and changing the signs of some vectors in $\bb$ so that all conditions remain in force and $\aaa_0$ with $\aaa_1$ switch places, reducing the situation to the case where $\operatorname{dim}U_0<d-1$. 
+
+        Consider the orthogonal projection $\pi_{\bb_1}:\mathbb{R}^d\rightarrow\operatorname{span}(\bb_1)$. By the definition of $\aaa_1$, we have $\left|\pi_{\bb_1}(\aaa_1)\right|=1$. Let $k=\operatorname{dim(\operatorname{span}(\bb_1))}$. Since $\bb$ contains a basis of $\mathbb{R}^d$, we have:
+        \begin{equation}\label{A_dif_B_star}
+            \left|\bb_*\right|\geq d-k ,\ 
+            \left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| \geq d-k
+        \end{equation}
+        We will now deal with possible values of $k$:
+        \begin{enumerate}
+            \item[i)] $k=1$, which means $\bb_1=\{0,\:b_d\}$. Since $\operatorname{dim}\aaa_1<d-1$, from Inequality~\ref{ineqForCl5} it follows that $\left|\aaa_1\right|\leq2^{d-2}$. Substituting this into \eqref{general_ind}, we obtain:
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right|\leq d 2^d + 2d + (2d - 4 - 2^{d-1}) \leq d 2^d + 2d
+            \end{equation*}
+            \item[ii)] $k=2$. From Inequality~\ref{ineqForCl5}, it follows that $\left|\bb_1\right|\leq4$, and $\left|\aaa_1\right|\leq2^{d-2}$. Due to \eqref{A_dif_B_star}, $\left|\bb_*\right|\geq d-2$, so if $\left|\aaa_0\right|-\left|\aaa_1\right|\geq 2$, \eqref{2d_minus_4} yields the desired estimate. Similarly, \eqref{2d_minus_4} completes the proof if $\left|\aaa_0\right|-\left|\aaa_1\right|=1$ and $\left|\bb_*\right|\geq 2d-4$. Finally, if $\left|\aaa_0\right|-\left|\aaa_1\right|=1$ and $\left|\bb_*\right|<2d-4$, then:
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right|=\left(2\left|\aaa_1\right|+1\right)\cdot\left(\left|\bb_*\right|+\left|\bb_1\right|\right)<\left(2^{d-1}+1\right)\cdot\left(2d-4+4\right)=d 2^d + 2d
+            \end{equation*}
+            \item[iii)] $k=d$. Inequality \ref{ineqForCl5} implies that $\aaa_1$ consists of only one point. Hence, \eqref{general_ind} becomes
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right|\leq 2\left(d-1\right)\left(2^{d-1}+2\right)+\left|\bb_1\right|-\left(\left|\aaa_0\right|-\left|\aaa_1\right|\right)\left|\bb_*\right| \leq 2\left(d-1\right)\left(2^{d-1}+2\right)+\left|\bb\right|,
+            \end{equation*}
+            which completes the proof when $|\bb| \leq 2^d-2d+4$. The opposite is indeed impossible, as it would contradict Theorem~\ref{d_plus_one_two_d}:
+            \begin{equation*}
+                \left|\aaa\right|\cdot\left|\bb\right|\geq\left|\bb\right|^2\geq\left(2^d-2d+4\right)^2>\left(d+1\right)2^d
+            \end{equation*}
+        \end{enumerate}
+
+        \noindent Before proceeding with the last case in the proof, let us understand that when $k < d$, we can assume $\left|\pi_{\bb_1}(\aaa_0)\right|=k$. Clearly $\left|\pi_{\bb_1}(\aaa_0)\right|\geq k$ because $\zero\in\aaa_0$, and 
+        \[
+            \operatorname{span}\bigl(\pi_{\bb_1}(\aaa_0)\bigr)=\operatorname{span}\bigl(\pi_{\bb_1}(\operatorname{span}(\aaa_0))\bigr)=\operatorname{span}(\bb_1)\cap b_d^\bot,
+        \]
+        which means $\pi_{\bb_1}(\aaa_0)$ contains $\zero$ and a basis of an $(k-1)$-dimensional space. Since by replacing some vectors in $\bb_1$ with their opposites (without affecting $|\bb_1|$) we ensure it has binary scalar products with $\aaa$, by Theorem \ref{d_plus_one_two_d} we have, if $\left|\pi_{\bb_1}(\aaa_0)\right|\geq k+1$,
+        \begin{align}
+            & \left|\bb_1\right|\cdot\left|\pi_{\bb_1}(\aaa)\right|\leq\left(k+1\right)2^k,\;\left|\pi_{\bb_1}(\aaa)\right|\geq k+2 \Rightarrow \left|\bb_1\right| \leq 2^k\left(1-\frac{1}{k+2}\right) \Rightarrow \nonumber \\
+            & \left|\aaa_1\right|\left|\bb_1\right| \leq 2^d\left(1-\frac{1}{k+2}\right) \Rightarrow \left|\aaa\right|\cdot\left|\bb\right|\stackrel{\eqref{general_ind}}{\leq} d 2^d + 2d + (2d-4)- \frac{2^d}{k+2}-(d-k) \nonumber
+        \end{align}
+        This proves the required estimate, because for $d \geq 3$ and $k < d$
+        \begin{equation*}
+            d+k-4-\frac{2^d}{k+2}\leq2d-5-\frac{2^d}{d+1}=-\frac{1}{d+1}\left(2^d - (2d-5)(d+1)\right)\leq 0
+        \end{equation*}
+
+        \noindent We now can assume $\left|\pi_{\bb_1}(\aaa_0)\right|=k$, meaning $\pi_{\bb_1}(\aaa_0)$ consists of zero and a basis of $\operatorname{span}(\bb_1) \cap b_d^\bot$, while $\pi_{\bb_1}(\aaa)$ consists of zero and a basis of $\operatorname{span}(\bb_1)$. With those assumptions in place, we proceed to the final subcase: 
+        
+        \begin{enumerate}
+            \item[iv)] $2 < k < d$. Note that, due to \eqref{A_dif_B_star}, $\bb_* \neq \varnothing$. Let's denote the elements of $\pi_{\bb_1}(\aaa)$ as $a_0 = 0, a_1, \ldots, a_k$, and their preimages in $\aaa$ as $\mathbb{A}_j=\pi_{\bb_1}^{-1}(a_j)\cap\aaa$. We'll choose the numbering such that $\mathbb{A}_1=\aaa_1$. Let $b_{11}, b_{12}, \ldots, b_{1k}$ be a basis of $\bb_1$ that is dual to $a_1, \ldots, a_k$. For example, according to our choice of numbering, $b_{11}=b_d$. Note that, due to $\bb$ being inclusion-wise maximal, all $b_{1j}$ must belong to $\bb_1$ (otherwise, they, along with $b_{1j}+b_d$ for $j>1$, could be added to $\bb$). If $\operatorname{dim}\aaa_1 < d-k$, we can follow a similar argument as in part i) to obtain $\left|\aaa_1\right|\leq2^{d-2}$ and the desired estimate. Consequently, we can now assume that $\operatorname{dim}\aaa_1=d-k$.
+
+            Our further plan is to write $\aaa$ in a particular basis to see that, due to $\operatorname{dim}\mathcal{A}_1=d-k$, any of the $b_{1j}$ could be initially chosen as $b_d$, and that a suitable choice would lead to the desired bound.
+            
+            We will augment $\{b_{11}, \ldots, b_{1k}\}$ with elements from $\bb_*$ to form a basis for $\mathbb{R}^d$ and represent $\aaa$ in the dual basis. Then vectors of $\aaa$, arranged as column-vectors, form a matrix of the following form:
+            
+            \begin{equation*} 
+            \renewcommand{\arraystretch}{0.9}
+            \aaa=\begin{pNiceArray}{w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}|w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}|w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}|w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}|w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}w{c}{2pt}}[first-row,last-col]
+                \Block{1-5}{\mathbb{A}_0}\phantom{0} & & & & &
+                \Block{1-5}{\mathbb{A}_1} & & & & &
+                \Block{1-5}{\mathbb{A}_2} & & & & &
+                \Block{1-5}{\cdots} & & & & &
+                \Block{1-5}{\mathbb{A}_k} & & & & &\\
+                
+                \Block{5-5}<\LARGE>{\bm{0}} & & & & &
+                1 & 1 & \cdots & 1 & 1 & 
+                0 & 0 & \cdots & 0 & 0 &
+                \Block{10-5}<\Large>{\cdots} & & & & &
+                \Block{4-5}<\Large>{\bm{0}} & & & & &\\
+                
+                  &  &  &  &  &
+                \Block{4-5}<\Large>{\bm{0}} & & & & & 
+                1 & 1 & \cdots & 1 & 1 &
+                  &  &  &  &  & 
+                  &  &  &  &  &\\
+
+                  &  &  &  &  &
+                  &  &  &  &  &
+                \Block{3-5}<\Large>{\bm{0}} &  &  &  &  &
+                  &  &  &  &  &
+                  &  &  &  &  &  \ \:k\\
+                  
+                &&&&&&&&&&&&&&&&&&&&&&&&\\
+                &&&&&&&&&&&&&&&&&&&& 1 & 1 & \cdots & 1 & 1 &\\ \hdottedline
+
+                \phantom{0}&&&&&\Block[fill=[RGB]{235,235,235},respect-arraystretch]{5-5}{}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&& &\\
+                &\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&& &\\
+                &&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&& &\ \:d-k\\
+                &&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}& &\\
+                &&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0}&&&&&\phantom{0} &\\
+                
+                \CodeAfter
+                    \line[radius=0.7pt]{7-2}{9-4}
+                    \line[radius=0.7pt]{7-7}{9-9}
+                    \line[radius=0.7pt]{7-12}{9-14}
+                    \line[radius=0.7pt]{7-22}{9-24}
+                    \SubMatrix{.}{1-1}{5-25}{]}[right-xshift=7pt]
+                    \SubMatrix{.}{6-1}{10-25}{]}[right-xshift=7pt]
+                    \UnderBrace[left-shorten, yshift=5pt]{6-6}{10-10}{\operatorname{dim}=d-k}
+                \end{pNiceArray}
+            \end{equation*}
+
+            \bigskip\bigskip\bigskip  %% TODO replace by a couple of phantom lines wrapped in "samepage"
+            
+            The rank of the highlighted block coincides with the affine dimension of $\mathbb{A}_1=\aaa_1$, which is $d-k$. Therefore,
+            \begin{equation*}
+                \forall j>1\!:\;d-1=\operatorname{dim}(\operatorname{span}(\aaa\setminus\mathbb{A}_j))=\operatorname{dim}(\aaa\cap b_{1j}^\bot),
+            \end{equation*}
+            which means that, indeed, any of the $b_{1j}$ could be set as $b_d$ from the start. Choose $b_{1j}$ with the smallest possible size of $\mathbb{A}_j$, and repeat all the same reasoning with it as $b_d$. Note that in this case, $\left|\aaa\setminus\mathbb{A}_j\right|>\left|\mathbb{A}_j\right|$, so there will be no need for translation of $\aaa$ that swaps $\aaa_0$ and $\aaa_1$ in Claim \ref{cl1}, and we can thus safely assume
+            \begin{align}
+                \forall j>1\!:\:\left|\mathbb{A}_1\right| & \leq \left|\mathbb{A}_j\right|\; \Longrightarrow \nonumber\\
+                 \;\left|\aaa_0\right|-\left|\aaa_1\right|=\left|\mathbb{A}_0\right|+\sum_{j>1}\left|\mathbb{A}_j\right| & \geq \left(k-1\right)\left|\aaa_1\right|\geq 2\left|\aaa_1\right|\label{dif_A1_bound}
+            \end{align} 
+            If $\left|\aaa_0\right|-\left|\aaa_1\right|\geq2d-4$, non-emptiness of $\bb_*$ and \eqref{2d_minus_4} imply the desired estimate. Otherwise
+            \begin{align*}
+                \left|\aaa_0\right|-\left|\aaa_1\right|<2d-4 \;\xRightarrow{\eqref{dif_A1_bound}}\; \left|\aaa\right| &< 2\cdot(2d-4)\;\Longrightarrow \\ \left|\aaa\right|\cdot\left|\bb\right|\leq\left|\aaa\right|^2 & < (4d-8)^2 < d 2^d + 2d,
+            \end{align*}
+            concluding the proof.
+        \end{enumerate}
+\end{proof}
+
+\noindent Two examples that demonstrate tightness of the bound in Theorem \ref{d2d_plus_2d} are
+
+\begin{example}\label{cubeOctop}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$, 
+    \begin{equation*}
+        \aaa=\left\{\sum_{i=2}^{d}\delta_i e_i\right\}\cup\left\{e_1\right\}\text{, }\bb=\left\{\delta_1 e_1 + e_j\right\} \cup \left\{e_1, 0\right\}\text{, where }\delta_i\text{ range over }\left\{0, 1\right\}\text{ and }j\text{ over }[2,d].
+    \end{equation*}
+    Here $\left|\mathcal{A}\right|=2^{d-1}+1$ and $\left|\mathcal{B}\right|=2d$.
+\end{example}
+
+\begin{example}\label{crosspoly}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        \aaa=\left\{e_d+\sum_{i=1}^{d-1}\varepsilon_i e_i\right\}\cup\left\{0\right\}\text{, }\bb=\left\{\frac{1}{2}\left(e_d+\varepsilon_i e_i\right)\right\}\text{, where }\varepsilon_i\text{ range over }\left\{-1, 1\right\}\text{ and $i$ over }[d].
+    \end{equation*}
+    Just like in example \ref{cubeOctop}, $\left|\aaa\right|=2^{d-1}+1$ and $\left|\bb\right|=2d$.
+\end{example}

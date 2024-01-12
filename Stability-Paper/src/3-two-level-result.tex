@@ -1,0 +1,73 @@
+\section{Application to \textbf{2}-level polytopes} \label{sec2level}
+Our main application of Theorem \ref{d2d_plus_2d} is the following
+\twoLevelNew*
+\noindent Before following with the proof let us make a simple observation, proof of which is given in Appendix \ref{appendix} for completeness:
+\begin{restatable}[]{lemma}{smallDifferenceLemma}\label{smallDifferenceLemma}
+    Let $\sss$ be a family of subsets of $[d-1]$ such that $|\sss| = d$ and 
+    \[
+        \forall S_1, S_2 \in \sss:\:|S_2\setminus S_1|\leq 1.
+    \]
+    Then either $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$.
+\end{restatable}
+\begin{proof}[Proof of Theorem \ref{two_level_new_bound}]
+    The statement is trivial on the plane, so we assume $d > 2$. Let us denote $V=f_0(P)$ and $F=f_{d-1}(P)$ for conciseness. Shift $P$ so that $0$ is among it's vertices and let $\aaa$ denote the vertex set of $P$ and $\bb'$ denote the minimal set of vectors such that every facet of $P$ lies in a hyperplane $\{x\,:\,\langle x,b \rangle = \delta \}$ for some $\delta\in\{0,1\}$ and $b\in\bb'$. Let $\bb = \bb' \cup \{0\}$.
+    If every vector in $\bb'$ defines one facet of $P$, we are done by Theorem \ref{d_plus_one_two_d}: 
+    \[V\cdot F < \left|\aaa\right|\cdot\left|\bb\right| \leq (d+1)2^d<(d-1)2^{d+1}+8(d-1).\]
+    Otherwise, let $b_d\in\bb'$ define two facets of $P$ and consider the setting of the proof of Theorem \ref{d2d_plus_2d}. Note that we may assume $\left|\aaa_0\right|\geq \left|\aaa_1\right|$ if appropriate translation of $P$ was made, so there will be no need for translation of $\aaa$ or inversions of vectors in $\bb$. Since $\operatorname{dim}(\aaa_1)=d-1$, we have $\bb_1=\{0,b_d\}$ and $\left|\pi(\bb)\right|=\left|\bb_*\right|+1$, which means 
+    \begin{equation}\label{produc_when_fuldim}
+        \left|\aaa\right|\cdot\left|\bb\right|=\left|\aaa_0\right|\cdot\left|\pi(\bb)\right|+\left|\aaa_1\right|\cdot\left|\pi(\bb)\right|+\left|\aaa\right|.
+    \end{equation}
+    Since every vector in $\bb'$ defines at most two facets of $P$, $\left|\bb\right| \geq \frac{F}{2}+1$, thus from \eqref{produc_when_fuldim} we conclude
+    \begin{equation}\label{VF_straightforward}
+        V\cdot F \leq 2 \left(\left|\aaa_0\right|\cdot\left|\pi(\bb)\right|+\left|\aaa_1\right|\cdot\left|\pi(\bb)\right|\right) \leq 4\cdot\left|\aaa_0\right|\cdot\left|\pi(\bb)\right|
+    \end{equation}
+    Consider three cases:
+    \begin{enumerate}
+        \item $\left|\aaa_0\right| > d$ and $\left|\pi(B)\right| > d$. By Theorem \ref{d2d_plus_2d}, we have
+        \[\left|\aaa_0\right|\cdot\left|\pi(\bb)\right| \leq (d-1)2^{d-1}+2(d-1)\]
+        and with \eqref{VF_straightforward} we are done. 
+        \item $\left|\pi(B)\right| = d$. Together with $\bb_1=\{0,b_d\}$, this means that $\bb'$ is a basis of $\mathbb{R}^d$. Every vector in $\bb'$ then has to define two facets of $P$, since otherwise $P$ is unbounded. Thus $P$ is affinely isomorphic to the cube.
+        \item $\left|\aaa_0\right| = d$. Note that as $|\aaa_1| \leq |\aaa_0|$ and $\operatorname{dim}(\aaa_1)=d-1$, we also have $\left|\aaa_1\right|=d$. If $|\pi(\bb)|\leq \frac{3}{4} \cdot 2^{d-1}$, then \eqref{VF_straightforward} implies $V \cdot F \leq \frac{3}{4} d \cdot 2^{d+1} < (d-1)2^{d+1} + 8(d-1)$, so we may further assume
+        \begin{equation}\label{piBisLarge}
+            |\pi(\bb)| > \frac{3}{4} \cdot 2^{d-1}.
+        \end{equation}
+        We will now make several observations about the structure of $\aaa$ and $\bb$, after which it will become clear that $P$ is affinely isomorphic to the cross-polytope. Let $a_0=0, a_1, \ldots, a_{d-1}$ be the elements of $\aaa_0$ and $\{u_{1}, \ldots, u_{d-1}\}$ be the basis of $\operatorname{span}(\aaa_0)$, dual to $\{a_1, \ldots, a_{d-1}\}$. Note that for every $j\in [d-1]$ there is $b_{\{j\}}\in \bb$ such that $\pi(b_{\{j\}})=u_j$: $b_{\{j\}}$ is the vector orthogonal to the facet of $P$ that contains vertices $\{a_0, \ldots, a_{d-1}\}\setminus \{a_j\}$ and differs from $\aaa_0$. Given $S\subseteq [d-1]$ let us denote by $b_{S}$ an element of $\bb$ for which $\pi(b_S)=\sum_{j\in S}u_j$, if there is one, with $b_{\varnothing}=0$ to avoid ambiguity. Observe that the basis of $\mathbb{R}^d$ dual to $\{b_{\{1\}}, b_{\{2\}}, \ldots, b_{\{d-1\}}, b_d\}$ is $\{a_1, a_2, \ldots, a_{d-1}, v\}$ for $v$ that satisfies 
+        \[
+            \la v, b_d\ra = 1\text{ and }\forall j \in [d-1]:\:\la v, b_{\{j\}}\ra = 0.
+        \]\
+        This means that 
+        \begin{equation}\label{A1-representation}
+            \aaa_1 = \{v+\sum_{j \in S}a_j:\:S\in \sss\}
+        \end{equation}
+    
+        for some family $\sss$ of subsets of $[d-1]$ with $|\sss| = d$. Our goal is to show that ${\sss= \{S\subseteq[d-1]:\:|S|\geq d-2\}}$, as then $P$ is affinely isomorphic to the cross-polytope, and we would be done. For $T \subseteq [d-1]$ denote $\sigma_T=\sum_{j\in T} a_j$ and note that, given $b_S\in \bb$,
+        \[
+            \la \sigma_T, b_S \ra = \la \sigma_T, \pi(b_S) \ra = \Bigl< \sigma_T, \sum_{j\in S}\pi(b_{\{j\}}) \Bigr> = \Bigl< \sum_{j\in T} a_j, \sum_{j\in S}b_{\{j\}} \Bigr> = |T \cap S|.
+        \]
+        Now assume, looking for a contradiction, that $\exists S_1, S_2 \in \sss:\:|S_2\setminus S_1| > 1$. \eqref{piBisLarge} means that there exists $b_S\in \bb$ such that $|S \cap (S_2 \setminus S_1)| > 1$. \eqref{A1-representation}
+        means that 
+        \begin{align*}
+            \{-1,0,1\} & \ni \la v+\sum_{j \in S_2}  a_j\,,\,b_{S}\ra - \la v+\sum_{j \in S_1} a_j\,,\, b_{S} \ra = \la \sigma_{S_2} - \sigma_{S_1}\,,\, b_{S} \ra \\ &
+            = |S_2 \cap S| - |S_1 \cap S| = |(S_2 \setminus S_1) \cap S| > 1,
+        \end{align*}
+        a contradiction. Therefore, $\forall S_1, S_2 \in \sss:\:|S_2\setminus S_1| \leq 1$, which by Lemma \ref{smallDifferenceLemma} implies that either $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$. The latter is, however, impossible, since then $P$ only has $d+1$ facets and $|\pi(\bb)| = d \leq \frac{3}{4} 2^{d-1}$. \eqref{A1-representation} now shows that $P$ is affinely isomorphic to the cross-polytope, and we are done.
+    \end{enumerate}
+\end{proof}
+
+ \noindent Two examples demonstrate tightness of the bound in Theorem \ref{two_level_new_bound}:
+
+\begin{example}[Cross-polytope $\times$ segment]\label{OctahedronCrossSegment}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        P=\operatorname{Conv}\bigl(\left\{\eps_i e_i + \eps_d e_d\right\}_{i\leq d-1}\bigr)\text{, where }\eps_i\text{ range over }\left\{-1, 1\right\}\text{ for $i\in[d]$}.
+    \end{equation*}
+    Here $f_0(P) = 4(d-1)$ and $f_{d-1}(P) = 2 + 2^{d-1}$. 
+\end{example}
+
+\begin{example}[Suspension of a cube]\label{CubeSuspension}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        P=\operatorname{Conv}\Biggl(\left\{\sum_{i=1}^{d-1}\varepsilon_i e_i\right\}\cup\left\{e_d, -e_d\right\}\Biggr)\text{, where }\varepsilon_i\text{ range over }\left\{-1, 1\right\}.
+    \end{equation*}
+    This is (up to coordinate scaling) the dual of the polytope in the previous example and, in particular, $f_0(P) = 2 + 2^{d-1}$ and $f_{d-1}(P) = 4(d-1)$.
+\end{example}

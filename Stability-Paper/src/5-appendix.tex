@@ -1,0 +1,36 @@
+\appendix
+
+\section{Appendix}\label{appendix}
+
+\dfInequality*
+\begin{proof}
+    We will prove this by induction on $d$: when $d=f$, the equality is satisfied. Let's perform the induction step from $d$ to $d+1$. Denoting the left and right sides of the inequality as $l(d, f)$ and $r(d)$, respectively, we have
+    \begin{equation*}
+        \begin{split}
+            r(d+1) - l(d+1, f) 
+            & \geq \left(r(d+1) - r(d)\right) - \left(l(d+1, f) - l(d, f)\right) \\
+            & = \left(d2^d + 2^{d+1} + 2\right) - \left(d+f+2\right)\left(2^{d-1}+2^{d-f}\right) \\
+            & = 2^{d-f}\left(d-f+2\right)\left(2^{f-1}-1-\frac{2f}{d-f+2}\right)+2 \\
+            & \geq 2^{d-f}\left(d-f+2\right)\left(2^{f-1}-1-f\right)
+        \end{split}
+    \end{equation*}
+    The obtained expression is non-negative for $f>2$. For $f=2$ and $d\geq4$, we have $2^{f-1}-1-\frac{2f}{d-f+2}\geq0$, and for $f=2$ and $d=2,3$, the initial inequality is checked explicitly.    
+\end{proof}
+
+\smallDifferenceLemma*
+\begin{proof}
+    We assume $d>2$ as the statement is trivial otherwise. $|\sss|>2$ and clearly $\sss$ contains sets of at most two different sizes (that differ by one), so let $U, V \in \sss$ both be of size $k\in [d-2]$. Observe that there are now only four options for sets in $\sss$:
+    \begin{enumerate}[(a)]
+        \item $U \cup V$ of size $k+1$. \label{cup}
+        \item Sets of size $k$ that are contained in $U \cup V$. \label{cupSubset}
+        \item Sets of size $k$ that contain $U\cap V$ as a subset. \label{capSupset}
+        \item $U \cap V$ of size $k-1$. \label{cap}
+    \end{enumerate}
+    \ref{cup} and \ref{cap} are not possible simultaneously, neither are \ref{cupSubset} and \ref{capSupset} with the exception of $U$ and $V$. There are $k+1$ and $d-k$ sets satisfying \ref{cupSubset} and \ref{capSupset} respectively, so $|\sss|=d$ is only possible if $k=d-2$ or $k=1$ with $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$ respectively.
+\end{proof}
+
+\noindent We finish with a conjecture that generalises our main result:
+
+\begin{conjecture}
+    Let $\aaa,\bb \subseteq \R^d$ both linearly span $\R^d$ such that $\la a, b\ra \in \{0,1\}$ holds for all $a \in \aaa$, $b \in \bb$. Furthermore, suppose $|\aaa|$ and $|\bb|$ are both strictly larger then $2^{k-1}(d-k+2)$. Then $\left|\mathcal{A}\right| \cdot\left|\mathcal{B}\right| \leq (2^{d-k}+k)2^k(d-k+1)$.
+\end{conjecture}
