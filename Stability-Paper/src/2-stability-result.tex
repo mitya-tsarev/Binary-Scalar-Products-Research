@@ -1,6 +1,6 @@
 \section{Stability results}\label{secStability}
 
-Let $\aaa, \bb$ both linearly span $\R^d$ and have binary scalar products, that is, $\la a, b \ra \in \{0,1\}$ for all $a \in \aaa$ and $b \in \bb$. We will use the following two simple observations a few times throughout our proofs. Let $a_1, \ldots, a_d$ be a basis of $\R^d$ contained in $\aaa$, consider the dual basis $a_1^*, \ldots, a_d^*$:
+Let $\aaa, \bb$ be families of vectors that both linearly span $\R^d$ and have binary scalar products, that is, $\la a, b \ra \in \{0,1\}$ for all $a \in \aaa$ and $b \in \bb$. We will use the following two simple observations a few times throughout our proofs. Let $a_1, \ldots, a_d$ be a basis of $\R^d$ contained in $\aaa$. Consider the dual basis $a_1^*, \ldots, a_d^*$:
 
 \[
     \la a_i, a_j^* \ra = 
@@ -24,17 +24,17 @@ Another observation is that projecting one family on the linear span of a subset
 \[
     \aaa_i=\left\{a \in \aaa:\left\langle a, b_d\right\rangle=i\right\} \text{ for } i=0, 1.
 \]
-The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, if important, will be specified at a later stage. We denote the orthogonal projection onto $U=b_d^\bot$ as $\pi: \mathbb{R}^d \rightarrow U$. By $X\subset \R^d$ not containing opposite points we mean that $\{x,-x\}\subseteq X$ is only possible if $x=\zero$. 
+The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operatorname{dim}\aaa_0,\operatorname{dim}\aaa_1)$, \textcolor{red}{Is it important?}  if important, will be specified at a later stage. We denote the orthogonal projection onto $U=b_d^\bot$ by $\pi: \mathbb{R}^d \rightarrow U$. We say that $X\subset \R^d$ does not contain opposite points if  $\{x,-x\}\subseteq X$ is only possible if $x=\zero$. Below, we state the claims and inequalities from \cite{kupavskii22}.
 
 \begin{restatable}{claim}{claimassumptions}
     \label{cl1}
-    We may translate $\aaa$ and replace some points in $\bb$ by their negatives such that the following holds.
+    We may translate $\aaa$ and replace some points $b\in\bb$ by the opposites $-b$ such that the following properties hold.
     \begin{itemize}
-        \item[(i)] We can still write $\aaa = \aaa_0 \cup \aaa_1$, where $\aaa_i = \{ a \in \aaa : \la a, b_d\ra = i\}$ for $i=0,1$ such that
+        \item[(i)] We (still) have $\aaa = \aaa_0 \cup \aaa_1$, where $\aaa_i = \{ a \in \aaa : \la a, b_d\ra = i\}$ for $i=0,1$ such that
             \begin{equation} \label{eqa0gea1}
                 |\aaa_0| \ge |\aaa_1|.
             \end{equation}
-        \item[(ii)] We still have
+        \item[(ii)] We  have
             \begin{equation}
                 \label{eqscala0}
                 \la a, b\ra \in \{0,1\} \text{ for each } a \in \aaa_0 \text{ and } b \in \bb.
@@ -47,11 +47,12 @@ The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operato
    Every point in $\pi(\bb)$ has at most two preimages in $\bb$.
 \end{restatable}
 
+We denote the linear span of $\aaa_0$ by $U_0$ and define the orthogonal projection $\tau: U \rightarrow U_0$. Let $\bb_* \subseteq \bb$ be the set of $b \in \bb$ for which $\pi(b)$ has exactly one preimage under projection onto $U$.
+
 \begin{restatable}{inequality}{ineqbasic}\label{in0}
    $\left|\aaa\right|\left|\bb\right| \leq 2\left|\aaa_0\right||\pi(\bb)|+\left|\aaa_1\right|\left|\bb \backslash \bb_*\right|$
 \end{restatable}
 
-\noindent We denote the linear span of $\aaa_0$ as $U_0$ and introduce the orthogonal projection $\tau: U \rightarrow U_0$. Let $\bb_* \subseteq \bb$ be the set of $b \in \bb$ for which $\pi(b)$ has exactly one pre-image under projection onto $U$.
 
 \begin{restatable}{claim}{claimpreimagestau}\label{cl3}
     $\left|\pi(\bb)\right| \leq 2^{d-1-\operatorname{dim} U_0}\left|\tau(\pi(\bb))\right|$.
@@ -60,7 +61,7 @@ The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operato
 \begin{restatable}{claim}{claimrestbbconstant}\label{cl4}
     $\bb \backslash \bb_* $ can be partitioned as $ \bb_0 \sqcup \bb_1$, with $\bb_0, \bb_1$ satisfying
     \[
-        \forall b\in\bb_i: \left|\left\{\langle a, b\rangle: a \in \aaa_i\right\}\right|=1\text{ for }i=0, 1
+        \forall b\in\bb_i: \left|\left\{\langle a, b\rangle: a \in \aaa_i\right\}\right|=1\text{ for }i=0, 1.
     \]
 \end{restatable}
 
@@ -79,13 +80,13 @@ The choice of $b_d$ among the vectors that maximise $\operatorname{max}(\operato
     For $i=0, 1$, we have $\left|\aaa_i\right|\left|\bb_i\right| \leq 2^d$.
 \end{restatable}
 
-\noindent Note that we can assume both  $\zero, b_d \in \bb_0$ or $\zero, b_d \in \bb_1$. Therefore, claim \ref{cl5} actually implies
+\noindent Looking at the definition of $\bb_i$, we see that we can assume both  $\zero, b_d \in \bb_0$ or $\zero, b_d \in \bb_1$. Therefore, claim \ref{cl5} actually implies
 \begin{equation}\label{stronger5}
     \left|\aaa_1\right|\left|\bb_1\right| \leq 2^d,\; \left|\aaa_0\right|\left(\left|\bb_0\right|+2\right)\leq 2^d,
 \end{equation}
 assuming here and further that $\zero, b_d \in \bb_1$.
 
-\noindent We will now understand under which conditions equality is achieved in Theorem \ref{d_plus_one_two_d}.
+\noindent This outline of claims is sufficient to  understand, under which conditions equality is achieved in Theorem \ref{d_plus_one_two_d}. We prove it as a warm-up, and then use its proof as a carcass for the further analysis.
 
 \begin{theorem}\label{uniq}
     Let $\aaa,\bb \subseteq \R^d$ both linearly span $\R^d$ such that $\la a, b\ra \in \{0,1\}$ holds for all $a \in \aaa$, $b \in \bb$. Then we only have $|\aaa| \cdot |\bb| = (d+1) 2^d$ if one of the families has size $d+1$ and the other is affinely isomorphic to $\{0,1\}^d$.
@@ -99,7 +100,7 @@ assuming here and further that $\zero, b_d \in \bb_1$.
             \left(d - 1\right) 2^d + 2\cdot2^d - 2\left|\aaa_0\right| \leq
             \left(d + 1\right) 2^d - \left|\aaa\right| < \left(d + 1\right) 2^d
         \end{equation*}
-        \item $\operatorname{dim}U_0 = d-1$. Note that since $\zero \in \aaa_0$, definition of $\bb_0$ implies $\bb_0 \subset U_0^\bot$, and thus here, assuming $\zero, b_d \in \bb_1$, we have $\bb_0 = \varnothing$. We consider two subcases:
+        \item $\operatorname{dim}U_0 = d-1$. Note that since $\zero \in \aaa_0$, the definition of $\bb_0$ implies $\bb_0 \subset U_0^\bot$, and thus here, assuming $\zero, b_d \in \bb_1$, we have $\bb_0 = \varnothing$. We consider two subcases:
         \begin{enumerate}
             \item[a)]\label{uniqfirstcase} $\bb_*\neq\varnothing$. Equality in Theorem \ref{d_plus_one_two_d} can only be achieved when Inequality \ref{in1} (and consequently Inequality \ref{in0}) are tight, which is only the case when  $\left|\aaa_0\right|\left|\pi(\bb)\right|=d 2^{d-1}$ (and $\left|\aaa_0\right|=\left|\aaa_1\right|$). By the induction hypothesis, the former is possible in one of two cases:
             \begin{enumerate}
