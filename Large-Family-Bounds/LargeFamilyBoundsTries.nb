@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   3274007,      96263]
-NotebookOptionsPosition[   3256709,      95973]
-NotebookOutlinePosition[   3257138,      95990]
-CellTagsIndexPosition[   3257095,      95987]
+NotebookDataLength[   3321514,      97720]
+NotebookOptionsPosition[   3302262,      97397]
+NotebookOutlinePosition[   3302691,      97414]
+CellTagsIndexPosition[   3302648,      97411]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -95969,6 +95969,1430 @@ Cell[BoxData[
    0.9447104961027485}]], "Output",
  CellChangeTimes->{3.9087477139564857`*^9},
  CellLabel->"Out[17]=",ExpressionUUID->"b881894b-44d6-43fe-b327-8f216ebd2a0f"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.914532181672888*^9, 
+  3.91453218377547*^9}},ExpressionUUID->"741542ec-84ae-498b-9ca7-\
+67b457b3dfa0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"d", "=", "14"}], ",", 
+     RowBox[{"Bin", "=", "Binomial"}], ",", "mat"}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"mat", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Bin", "[", 
+            RowBox[{"p", ",", "k"}], "]"}], 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Bin", "[", 
+              RowBox[{"q", ",", 
+               RowBox[{"k", "-", "1"}]}], "]"}], "+", 
+             RowBox[{"Bin", "[", 
+              RowBox[{"q", ",", "k"}], "]"}], "+", 
+             RowBox[{"Bin", "[", 
+              RowBox[{"q", ",", 
+               RowBox[{"k", "+", "1"}]}], "]"}]}], ")"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "0", ",", "p"}], "}"}]}], "]"}], "*", 
+        SuperscriptBox["2", 
+         RowBox[{"d", "-", "1", "-", "p", "-", "q"}]]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"p", ",", "0", ",", 
+         RowBox[{"d", "-", "1"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", "0", ",", 
+         RowBox[{"(*", 
+          RowBox[{"Min", "[", 
+           RowBox[{"p", ",", 
+            RowBox[{"d", "-", "1", "-", "p"}]}], "]"}], "*)"}], 
+         RowBox[{"d", "-", "1"}]}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"ArrayPlot", "[", 
+     RowBox[{"mat", ",", 
+      RowBox[{"Epilog", "->", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"MapIndexed", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Text", "[", 
+             RowBox[{"#1", ",", 
+              RowBox[{"Reverse", "[", 
+               RowBox[{"#2", "-", 
+                RowBox[{"1", "/", "2"}]}], "]"}]}], "]"}], "&"}], ",", 
+           RowBox[{"Reverse", "[", 
+            RowBox[{"N", "@", "mat"}], "]"}], ",", 
+           RowBox[{"{", "2", "}"}]}], "]"}]}], "}"}]}], ",", 
+      RowBox[{"Mesh", "->", "True"}], ",", 
+      RowBox[{"ColorFunction", "->", "\"\<Rainbow\>\""}]}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.914532208691391*^9, 3.91453226397357*^9}, {
+   3.914532295600093*^9, 3.9145323784064493`*^9}, {3.914532422385788*^9, 
+   3.914532503720668*^9}, {3.914532549054784*^9, 3.914532706229727*^9}, {
+   3.914532740366156*^9, 3.914532740396758*^9}, {3.9145673032917643`*^9, 
+   3.914567418404924*^9}, {3.914567644493846*^9, 3.9145676629932947`*^9}, {
+   3.914567696635*^9, 3.914567733279146*^9}, {3.914574476837536*^9, 
+   3.914574510319887*^9}, {3.914574549645204*^9, 3.914574573176044*^9}, {
+   3.9145746688591423`*^9, 3.914574689370347*^9}, {3.914575192743361*^9, 
+   3.9145751931535263`*^9}, {3.91457797262873*^9, 3.914577987651528*^9}, {
+   3.9145780451696243`*^9, 3.9145780640341797`*^9}, 3.914580236761774*^9},
+ CellLabel->"In[90]:=",ExpressionUUID->"5f68f4b1-de40-4f9b-8d0b-69fd08f236e7"],
+
+Cell[BoxData[
+ GraphicsBox[{RasterBox[CompressedData["
+1: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
+7qbON6hzpP8Aqd2FeA==
+    "], {{0, 0}, {14, 14}}, {0, 1}], {
+    {GrayLevel[
+      NCache[-1 + GoldenRatio, 0.6180339887498949]], 
+     StyleBox[
+      LineBox[{{{0, 14}, {14, 14}}, {{0, 13}, {14, 13}}, {{0, 12}, {14, 
+       12}}, {{0, 11}, {14, 11}}, {{0, 10}, {14, 10}}, {{0, 9}, {14, 9}}, {{0,
+        8}, {14, 8}}, {{0, 7}, {14, 7}}, {{0, 6}, {14, 6}}, {{0, 5}, {14, 
+       5}}, {{0, 4}, {14, 4}}, {{0, 3}, {14, 3}}, {{0, 2}, {14, 2}}, {{0, 
+       1}, {14, 1}}, {{0, 0}, {14, 0}}}],
+      Antialiasing->False]}, 
+    {GrayLevel[
+      NCache[-1 + GoldenRatio, 0.6180339887498949]], 
+     StyleBox[
+      LineBox[{{{0, 0}, {0, 14}}, {{1, 0}, {1, 14}}, {{2, 0}, {2, 14}}, {{3, 
+       0}, {3, 14}}, {{4, 0}, {4, 14}}, {{5, 0}, {5, 14}}, {{6, 0}, {6, 
+       14}}, {{7, 0}, {7, 14}}, {{8, 0}, {8, 14}}, {{9, 0}, {9, 14}}, {{10, 
+       0}, {10, 14}}, {{11, 0}, {11, 14}}, {{12, 0}, {12, 14}}, {{13, 0}, {13,
+        14}}, {{14, 0}, {14, 14}}}],
+      Antialiasing->False]}}},
+  Epilog->{
+    RGBColor[1, 0, 0], {{
+      InsetBox[
+       FormBox["14.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[1, 2]}, {0.5, 0.5}]], 
+      InsetBox[
+       FormBox["53.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[1, 2]}, {1.5, 0.5}]], 
+      InsetBox[
+       FormBox["143.75`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[1, 2]}, {2.5, 0.5}]], 
+      InsetBox[
+       FormBox["312.5`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[1, 2]}, {3.5, 0.5}]], 
+      InsetBox[
+       FormBox["578.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[1, 2]}, {4.5, 0.5}]], 
+      InsetBox[
+       FormBox["943.5`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[1, 2]}, {5.5, 0.5}]], 
+      InsetBox[
+       FormBox["1392.9375`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[1, 2]}, {6.5, 0.5}]], 
+      InsetBox[
+       FormBox["1892.578125`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[1, 2]}, {7.5, 0.5}]], 
+      InsetBox[
+       FormBox["2397.265625`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[1, 2]}, {8.5, 0.5}]], 
+      InsetBox[
+       FormBox["2859.0546875`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[1, 2]}, {9.5, 0.5}]], 
+      InsetBox[
+       FormBox["3235.677734375`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[1, 2]}, {10.5, 0.5}]], 
+      InsetBox[
+       FormBox["3496.853515625`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[1, 2]}, {11.5, 0.5}]], 
+      InsetBox[
+       FormBox["3627.44140625`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[1, 2]}, {12.5, 0.5}]], 
+      InsetBox[
+       FormBox["3627.44140625`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[1, 2]}, {13.5, 0.5}]]}, {
+      InsetBox[
+       FormBox["26.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[3, 2]}, {0.5, 1.5}]], 
+      InsetBox[
+       FormBox["92.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[3, 2]}, {1.5, 1.5}]], 
+      InsetBox[
+       FormBox["234.5`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[3, 2]}, {2.5, 1.5}]], 
+      InsetBox[
+       FormBox["481.25`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[3, 2]}, {3.5, 1.5}]], 
+      InsetBox[
+       FormBox["843.5`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[3, 2]}, {4.5, 1.5}]], 
+      InsetBox[
+       FormBox["1309.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[3, 2]}, {5.5, 1.5}]], 
+      InsetBox[
+       FormBox["1842.375`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[3, 2]}, {6.5, 1.5}]], 
+      InsetBox[
+       FormBox["2392.21875`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[3, 2]}, {7.5, 1.5}]], 
+      InsetBox[
+       FormBox["2901.953125`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[3, 2]}, {8.5, 1.5}]], 
+      InsetBox[
+       FormBox["3320.84375`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[3, 2]}, {9.5, 1.5}]], 
+      InsetBox[
+       FormBox["3612.30078125`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[3, 2]}, {10.5, 1.5}]], 
+      InsetBox[
+       FormBox["3758.029296875`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[3, 2]}, {11.5, 1.5}]], 
+      InsetBox[
+       FormBox["3758.029296875`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[3, 2]}, {12.5, 1.5}]], 
+      InsetBox[
+       FormBox["3627.44140625`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[3, 2]}, {13.5, 1.5}]]}, {
+      InsetBox[
+       FormBox["48.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[5, 2]}, {0.5, 2.5}]], 
+      InsetBox[
+       FormBox["158.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[5, 2]}, {1.5, 2.5}]], 
+      InsetBox[
+       FormBox["377.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[5, 2]}, {2.5, 2.5}]], 
+      InsetBox[
+       FormBox["728.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[5, 2]}, {3.5, 2.5}]], 
+      InsetBox[
+       FormBox["1205.75`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[5, 2]}, {4.5, 2.5}]], 
+      InsetBox[
+       FormBox["1774.5`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[5, 2]}, {5.5, 2.5}]], 
+      InsetBox[
+       FormBox["2375.75`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[5, 2]}, {6.5, 2.5}]], 
+      InsetBox[
+       FormBox["2942.0625`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[5, 2]}, {7.5, 2.5}]], 
+      InsetBox[
+       FormBox["3411.6875`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[5, 2]}, {8.5, 2.5}]], 
+      InsetBox[
+       FormBox["3739.734375`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[5, 2]}, {9.5, 2.5}]], 
+      InsetBox[
+       FormBox["3903.7578125`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[5, 2]}, {10.5, 2.5}]], 
+      InsetBox[
+       FormBox["3903.7578125`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[5, 2]}, {11.5, 2.5}]], 
+      InsetBox[
+       FormBox["3758.029296875`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[5, 2]}, {12.5, 2.5}]], 
+      InsetBox[
+       FormBox["3496.853515625`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[5, 2]}, {13.5, 2.5}]]}, {
+      InsetBox[
+       FormBox["88.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[7, 2]}, {0.5, 3.5}]], 
+      InsetBox[
+       FormBox["268.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[7, 2]}, {1.5, 3.5}]], 
+      InsetBox[
+       FormBox["596.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[7, 2]}, {2.5, 3.5}]], 
+      InsetBox[
+       FormBox["1079.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[7, 2]}, {3.5, 3.5}]], 
+      InsetBox[
+       FormBox["1683.5`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[7, 2]}, {4.5, 3.5}]], 
+      InsetBox[
+       FormBox["2343.25`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[7, 2]}, {5.5, 3.5}]], 
+      InsetBox[
+       FormBox["2977.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[7, 2]}, {6.5, 3.5}]], 
+      InsetBox[
+       FormBox["3508.375`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[7, 2]}, {7.5, 3.5}]], 
+      InsetBox[
+       FormBox["3881.3125`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[7, 2]}, {8.5, 3.5}]], 
+      InsetBox[
+       FormBox["4067.78125`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[7, 2]}, {9.5, 3.5}]], 
+      InsetBox[
+       FormBox["4067.78125`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[7, 2]}, {10.5, 3.5}]], 
+      InsetBox[
+       FormBox["3903.7578125`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[7, 2]}, {11.5, 3.5}]], 
+      InsetBox[
+       FormBox["3612.30078125`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[7, 2]}, {12.5, 3.5}]], 
+      InsetBox[
+       FormBox["3235.677734375`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[7, 2]}, {13.5, 3.5}]]}, {
+      InsetBox[
+       FormBox["160.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[9, 2]}, {0.5, 4.5}]], 
+      InsetBox[
+       FormBox["448.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[9, 2]}, {1.5, 4.5}]], 
+      InsetBox[
+       FormBox["924.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[9, 2]}, {2.5, 4.5}]], 
+      InsetBox[
+       FormBox["1562.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[9, 2]}, {3.5, 4.5}]], 
+      InsetBox[
+       FormBox["2288.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[9, 2]}, {4.5, 4.5}]], 
+      InsetBox[
+       FormBox["3003.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[9, 2]}, {5.5, 4.5}]], 
+      InsetBox[
+       FormBox["3610.75`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[9, 2]}, {6.5, 4.5}]], 
+      InsetBox[
+       FormBox["4039.75`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[9, 2]}, {7.5, 4.5}]], 
+      InsetBox[
+       FormBox["4254.25`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[9, 2]}, {8.5, 4.5}]], 
+      InsetBox[
+       FormBox["4254.25`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[9, 2]}, {9.5, 4.5}]], 
+      InsetBox[
+       FormBox["4067.78125`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[9, 2]}, {10.5, 4.5}]], 
+      InsetBox[
+       FormBox["3739.734375`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[9, 2]}, {11.5, 4.5}]], 
+      InsetBox[
+       FormBox["3320.84375`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[9, 2]}, {12.5, 4.5}]], 
+      InsetBox[
+       FormBox["2859.0546875`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[9, 2]}, {13.5, 4.5}]]}, {
+      InsetBox[
+       FormBox["288.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[11, 2]}, {0.5, 5.5}]], 
+      InsetBox[
+       FormBox["736.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[11, 2]}, {1.5, 5.5}]], 
+      InsetBox[
+       FormBox["1400.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[11, 2]}, {2.5, 5.5}]], 
+      InsetBox[
+       FormBox["2200.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[11, 2]}, {3.5, 5.5}]], 
+      InsetBox[
+       FormBox["3014.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[11, 2]}, {4.5, 5.5}]], 
+      InsetBox[
+       FormBox["3718.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[11, 2]}, {5.5, 5.5}]], 
+      InsetBox[
+       FormBox["4218.5`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[11, 2]}, {6.5, 5.5}]], 
+      InsetBox[
+       FormBox["4468.75`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[11, 2]}, {7.5, 5.5}]], 
+      InsetBox[
+       FormBox["4468.75`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[11, 2]}, {8.5, 5.5}]], 
+      InsetBox[
+       FormBox["4254.25`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[11, 2]}, {9.5, 5.5}]], 
+      InsetBox[
+       FormBox["3881.3125`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[11, 2]}, {10.5, 5.5}]], 
+      InsetBox[
+       FormBox["3411.6875`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[11, 2]}, {11.5, 5.5}]], 
+      InsetBox[
+       FormBox["2901.953125`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[11, 2]}, {12.5, 5.5}]], 
+      InsetBox[
+       FormBox["2397.265625`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[11, 2]}, {13.5, 5.5}]]}, {
+      InsetBox[
+       FormBox["512.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[13, 2]}, {0.5, 6.5}]], 
+      InsetBox[
+       FormBox["1184.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[13, 2]}, {1.5, 6.5}]], 
+      InsetBox[
+       FormBox["2064.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[13, 2]}, {2.5, 6.5}]], 
+      InsetBox[
+       FormBox["3000.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[13, 2]}, {3.5, 6.5}]], 
+      InsetBox[
+       FormBox["3828.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[13, 2]}, {4.5, 6.5}]], 
+      InsetBox[
+       FormBox["4422.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[13, 2]}, {5.5, 6.5}]], 
+      InsetBox[
+       FormBox["4719.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[13, 2]}, {6.5, 6.5}]], 
+      InsetBox[
+       FormBox["4719.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[13, 2]}, {7.5, 6.5}]], 
+      InsetBox[
+       FormBox["4468.75`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[13, 2]}, {8.5, 6.5}]], 
+      InsetBox[
+       FormBox["4039.75`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[13, 2]}, {9.5, 6.5}]], 
+      InsetBox[
+       FormBox["3508.375`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[13, 2]}, {10.5, 6.5}]], 
+      InsetBox[
+       FormBox["2942.0625`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[13, 2]}, {11.5, 6.5}]], 
+      InsetBox[
+       FormBox["2392.21875`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[13, 2]}, {12.5, 6.5}]], 
+      InsetBox[
+       FormBox["1892.578125`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[13, 2]}, {13.5, 6.5}]]}, {
+      InsetBox[
+       FormBox["896.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[15, 2]}, {0.5, 7.5}]], 
+      InsetBox[
+       FormBox["1856.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[15, 2]}, {1.5, 7.5}]], 
+      InsetBox[
+       FormBox["2944.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[15, 2]}, {2.5, 7.5}]], 
+      InsetBox[
+       FormBox["3936.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[15, 2]}, {3.5, 7.5}]], 
+      InsetBox[
+       FormBox["4656.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[15, 2]}, {4.5, 7.5}]], 
+      InsetBox[
+       FormBox["5016.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[15, 2]}, {5.5, 7.5}]], 
+      InsetBox[
+       FormBox["5016.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[15, 2]}, {6.5, 7.5}]], 
+      InsetBox[
+       FormBox["4719.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[15, 2]}, {7.5, 7.5}]], 
+      InsetBox[
+       FormBox["4218.5`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[15, 2]}, {8.5, 7.5}]], 
+      InsetBox[
+       FormBox["3610.75`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[15, 2]}, {9.5, 7.5}]], 
+      InsetBox[
+       FormBox["2977.`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[15, 2]}, {10.5, 7.5}]], 
+      InsetBox[
+       FormBox["2375.75`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[15, 2]}, {11.5, 7.5}]], 
+      InsetBox[
+       FormBox["1842.375`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[15, 2]}, {12.5, 7.5}]], 
+      InsetBox[
+       FormBox["1392.9375`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[15, 2]}, {13.5, 7.5}]]}, {
+      InsetBox[
+       FormBox["1536.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[17, 2]}, {0.5, 8.5}]], 
+      InsetBox[
+       FormBox["2816.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[17, 2]}, {1.5, 8.5}]], 
+      InsetBox[
+       FormBox["4032.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[17, 2]}, {2.5, 8.5}]], 
+      InsetBox[
+       FormBox["4928.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[17, 2]}, {3.5, 8.5}]], 
+      InsetBox[
+       FormBox["5376.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[17, 2]}, {4.5, 8.5}]], 
+      InsetBox[
+       FormBox["5376.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[17, 2]}, {5.5, 8.5}]], 
+      InsetBox[
+       FormBox["5016.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[17, 2]}, {6.5, 8.5}]], 
+      InsetBox[
+       FormBox["4422.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[17, 2]}, {7.5, 8.5}]], 
+      InsetBox[
+       FormBox["3718.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[17, 2]}, {8.5, 8.5}]], 
+      InsetBox[
+       FormBox["3003.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[17, 2]}, {9.5, 8.5}]], 
+      InsetBox[
+       FormBox["2343.25`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[17, 2]}, {10.5, 8.5}]], 
+      InsetBox[
+       FormBox["1774.5`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[17, 2]}, {11.5, 8.5}]], 
+      InsetBox[
+       FormBox["1309.`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[17, 2]}, {12.5, 8.5}]], 
+      InsetBox[
+       FormBox["943.5`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[17, 2]}, {13.5, 8.5}]]}, {
+      InsetBox[
+       FormBox["2560.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[19, 2]}, {0.5, 9.5}]], 
+      InsetBox[
+       FormBox["4096.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[19, 2]}, {1.5, 9.5}]], 
+      InsetBox[
+       FormBox["5248.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[19, 2]}, {2.5, 9.5}]], 
+      InsetBox[
+       FormBox["5824.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[19, 2]}, {3.5, 9.5}]], 
+      InsetBox[
+       FormBox["5824.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[19, 2]}, {4.5, 9.5}]], 
+      InsetBox[
+       FormBox["5376.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[19, 2]}, {5.5, 9.5}]], 
+      InsetBox[
+       FormBox["4656.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[19, 2]}, {6.5, 9.5}]], 
+      InsetBox[
+       FormBox["3828.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[19, 2]}, {7.5, 9.5}]], 
+      InsetBox[
+       FormBox["3014.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[19, 2]}, {8.5, 9.5}]], 
+      InsetBox[
+       FormBox["2288.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[19, 2]}, {9.5, 9.5}]], 
+      InsetBox[
+       FormBox["1683.5`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[19, 2]}, {10.5, 9.5}]], 
+      InsetBox[
+       FormBox["1205.75`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[19, 2]}, {11.5, 9.5}]], 
+      InsetBox[
+       FormBox["843.5`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[19, 2]}, {12.5, 9.5}]], 
+      InsetBox[
+       FormBox["578.`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[19, 2]}, {13.5, 9.5}]]}, {
+      InsetBox[
+       FormBox["4096.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[21, 2]}, {0.5, 10.5}]], 
+      InsetBox[
+       FormBox["5632.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[21, 2]}, {1.5, 10.5}]], 
+      InsetBox[
+       FormBox["6400.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[21, 2]}, {2.5, 10.5}]], 
+      InsetBox[
+       FormBox["6400.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[21, 2]}, {3.5, 10.5}]], 
+      InsetBox[
+       FormBox["5824.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[21, 2]}, {4.5, 10.5}]], 
+      InsetBox[
+       FormBox["4928.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[21, 2]}, {5.5, 10.5}]], 
+      InsetBox[
+       FormBox["3936.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[21, 2]}, {6.5, 10.5}]], 
+      InsetBox[
+       FormBox["3000.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[21, 2]}, {7.5, 10.5}]], 
+      InsetBox[
+       FormBox["2200.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[21, 2]}, {8.5, 10.5}]], 
+      InsetBox[
+       FormBox["1562.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[21, 2]}, {9.5, 10.5}]], 
+      InsetBox[
+       FormBox["1079.`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[21, 2]}, {10.5, 10.5}]], 
+      InsetBox[
+       FormBox["728.`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[21, 2]}, {11.5, 10.5}]], 
+      InsetBox[
+       FormBox["481.25`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[21, 2]}, {12.5, 10.5}]], 
+      InsetBox[
+       FormBox["312.5`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[21, 2]}, {13.5, 10.5}]]}, {
+      InsetBox[
+       FormBox["6144.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[23, 2]}, {0.5, 11.5}]], 
+      InsetBox[
+       FormBox["7168.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[23, 2]}, {1.5, 11.5}]], 
+      InsetBox[
+       FormBox["7168.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[23, 2]}, {2.5, 11.5}]], 
+      InsetBox[
+       FormBox["6400.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[23, 2]}, {3.5, 11.5}]], 
+      InsetBox[
+       FormBox["5248.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[23, 2]}, {4.5, 11.5}]], 
+      InsetBox[
+       FormBox["4032.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[23, 2]}, {5.5, 11.5}]], 
+      InsetBox[
+       FormBox["2944.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[23, 2]}, {6.5, 11.5}]], 
+      InsetBox[
+       FormBox["2064.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[23, 2]}, {7.5, 11.5}]], 
+      InsetBox[
+       FormBox["1400.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[23, 2]}, {8.5, 11.5}]], 
+      InsetBox[
+       FormBox["924.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[23, 2]}, {9.5, 11.5}]], 
+      InsetBox[
+       FormBox["596.`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[23, 2]}, {10.5, 11.5}]], 
+      InsetBox[
+       FormBox["377.`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[23, 2]}, {11.5, 11.5}]], 
+      InsetBox[
+       FormBox["234.5`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[23, 2]}, {12.5, 11.5}]], 
+      InsetBox[
+       FormBox["143.75`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[23, 2]}, {13.5, 11.5}]]}, {
+      InsetBox[
+       FormBox["8192.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[25, 2]}, {0.5, 12.5}]], 
+      InsetBox[
+       FormBox["8192.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[25, 2]}, {1.5, 12.5}]], 
+      InsetBox[
+       FormBox["7168.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[25, 2]}, {2.5, 12.5}]], 
+      InsetBox[
+       FormBox["5632.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[25, 2]}, {3.5, 12.5}]], 
+      InsetBox[
+       FormBox["4096.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[25, 2]}, {4.5, 12.5}]], 
+      InsetBox[
+       FormBox["2816.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[25, 2]}, {5.5, 12.5}]], 
+      InsetBox[
+       FormBox["1856.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[25, 2]}, {6.5, 12.5}]], 
+      InsetBox[
+       FormBox["1184.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[25, 2]}, {7.5, 12.5}]], 
+      InsetBox[
+       FormBox["736.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[25, 2]}, {8.5, 12.5}]], 
+      InsetBox[
+       FormBox["448.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[25, 2]}, {9.5, 12.5}]], 
+      InsetBox[
+       FormBox["268.`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[25, 2]}, {10.5, 12.5}]], 
+      InsetBox[
+       FormBox["158.`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[25, 2]}, {11.5, 12.5}]], 
+      InsetBox[
+       FormBox["92.`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[25, 2]}, {12.5, 12.5}]], 
+      InsetBox[
+       FormBox["53.`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[25, 2]}, {13.5, 12.5}]]}, {
+      InsetBox[
+       FormBox["8192.`", TraditionalForm], 
+       NCache[{
+         Rational[1, 2], 
+         Rational[27, 2]}, {0.5, 13.5}]], 
+      InsetBox[
+       FormBox["8192.`", TraditionalForm], 
+       NCache[{
+         Rational[3, 2], 
+         Rational[27, 2]}, {1.5, 13.5}]], 
+      InsetBox[
+       FormBox["6144.`", TraditionalForm], 
+       NCache[{
+         Rational[5, 2], 
+         Rational[27, 2]}, {2.5, 13.5}]], 
+      InsetBox[
+       FormBox["4096.`", TraditionalForm], 
+       NCache[{
+         Rational[7, 2], 
+         Rational[27, 2]}, {3.5, 13.5}]], 
+      InsetBox[
+       FormBox["2560.`", TraditionalForm], 
+       NCache[{
+         Rational[9, 2], 
+         Rational[27, 2]}, {4.5, 13.5}]], 
+      InsetBox[
+       FormBox["1536.`", TraditionalForm], 
+       NCache[{
+         Rational[11, 2], 
+         Rational[27, 2]}, {5.5, 13.5}]], 
+      InsetBox[
+       FormBox["896.`", TraditionalForm], 
+       NCache[{
+         Rational[13, 2], 
+         Rational[27, 2]}, {6.5, 13.5}]], 
+      InsetBox[
+       FormBox["512.`", TraditionalForm], 
+       NCache[{
+         Rational[15, 2], 
+         Rational[27, 2]}, {7.5, 13.5}]], 
+      InsetBox[
+       FormBox["288.`", TraditionalForm], 
+       NCache[{
+         Rational[17, 2], 
+         Rational[27, 2]}, {8.5, 13.5}]], 
+      InsetBox[
+       FormBox["160.`", TraditionalForm], 
+       NCache[{
+         Rational[19, 2], 
+         Rational[27, 2]}, {9.5, 13.5}]], 
+      InsetBox[
+       FormBox["88.`", TraditionalForm], 
+       NCache[{
+         Rational[21, 2], 
+         Rational[27, 2]}, {10.5, 13.5}]], 
+      InsetBox[
+       FormBox["48.`", TraditionalForm], 
+       NCache[{
+         Rational[23, 2], 
+         Rational[27, 2]}, {11.5, 13.5}]], 
+      InsetBox[
+       FormBox["26.`", TraditionalForm], 
+       NCache[{
+         Rational[25, 2], 
+         Rational[27, 2]}, {12.5, 13.5}]], 
+      InsetBox[
+       FormBox["14.`", TraditionalForm], 
+       NCache[{
+         Rational[27, 2], 
+         Rational[27, 2]}, {13.5, 13.5}]]}}},
+  Frame->False,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{685.08984375, Automatic},
+  Method->{
+   "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{
+  3.914532534640016*^9, {3.914532611392724*^9, 3.9145326521632547`*^9}, {
+   3.914532687224801*^9, 3.914532706949272*^9}, 3.914532741190242*^9, {
+   3.9145673538498793`*^9, 3.9145674190203657`*^9}, 3.9145676649019547`*^9, {
+   3.914567697100141*^9, 3.9145677339491863`*^9}, {3.914574477218733*^9, 
+   3.9145745114252853`*^9}, {3.9145745504128857`*^9, 3.91457457433536*^9}, {
+   3.9145746743103437`*^9, 3.9145746899860373`*^9}, 3.9145751954162073`*^9, 
+   3.914577990071334*^9, {3.914578051185906*^9, 3.9145780648229723`*^9}, 
+   3.914580237272889*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"8e30b052-1298-4e4e-ba72-a7c8cb2b1af4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FactorInteger", "@", "7168"}]], "Input",
+ CellChangeTimes->{{3.9145752642103043`*^9, 3.914575282761572*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"198c2930-bb3d-4746-a1fe-0957b85b5b77"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.9145752835126534`*^9},
+ CellLabel->"Out[80]=",ExpressionUUID->"356e9c9a-ae4f-470d-ace8-918ddb367567"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["2", "13"], "*", 
+  RowBox[{"7", "/", "8"}]}]], "Input",
+ CellChangeTimes->{{3.914575201396344*^9, 3.914575212848283*^9}, {
+  3.9145753040443077`*^9, 3.9145753088168364`*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"cc6d7ee6-2644-48e5-a287-f21496ebeee2"],
+
+Cell[BoxData["7168"], "Output",
+ CellChangeTimes->{3.9145752134792757`*^9, 3.914575309307803*^9},
+ CellLabel->"Out[81]=",ExpressionUUID->"b6e0d63f-89cd-4a4e-9b77-2c80c9efa94a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      FractionBox["7", "8"], "d", " ", 
+      SuperscriptBox["2", 
+       RowBox[{"d", "+", "1"}]]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"d", "-", "1"}], ")"}], " ", 
+       SuperscriptBox["2", 
+        RowBox[{"d", "+", "1"}]]}], "+", 
+      RowBox[{"8", 
+       RowBox[{"(", 
+        RowBox[{"d", "-", "1"}], ")"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", "1", ",", "13"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9145747807847977`*^9, 3.9145748311599617`*^9}, {
+  3.914576164167115*^9, 3.91457627671049*^9}, {3.914576309865417*^9, 
+  3.9145763126361647`*^9}, {3.9145766110977917`*^9, 3.914576616611367*^9}},
+ CellLabel->"In[86]:=",ExpressionUUID->"535b7cdb-8ec2-4659-bf24-00a735b7f012"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["7", "2"], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"14", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"42", ",", "48"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"112", ",", "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"280", ",", "288"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"672", ",", "680"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1568", ",", "1584"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3584", ",", "3640"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8064", ",", "8256"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"17920", ",", "18504"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"39424", ",", "41040"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"86016", ",", "90200"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"186368", ",", "196704"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.914576204035759*^9, {3.914576287737872*^9, 3.91457631328796*^9}, {
+   3.914576611487485*^9, 3.914576617258381*^9}},
+ CellLabel->"Out[86]=",ExpressionUUID->"e540bda1-b18a-4449-a086-59fcd55c0073"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"d", "=", "7"}], ",", 
+      RowBox[{"Bin", "=", "Binomial"}], ",", "mat"}], "}"}], ",", 
+    RowBox[{"mat", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Bin", "[", 
+           RowBox[{"p", ",", "k"}], "]"}], 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Bin", "[", 
+             RowBox[{"q", ",", 
+              RowBox[{"k", "-", "1"}]}], "]"}], "+", 
+            RowBox[{"Bin", "[", 
+             RowBox[{"q", ",", "k"}], "]"}], "+", 
+            RowBox[{"Bin", "[", 
+             RowBox[{"q", ",", 
+              RowBox[{"k", "+", "1"}]}], "]"}]}], ")"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "0", ",", "p"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"p", ",", "0", ",", 
+         RowBox[{"d", "-", "1"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"q", ",", "0", ",", 
+         RowBox[{"(*", 
+          RowBox[{"Min", "[", 
+           RowBox[{"p", ",", 
+            RowBox[{"d", "-", "1", "-", "p"}]}], "]"}], "*)"}], 
+         RowBox[{"d", "-", "1"}]}], "}"}]}], "]"}]}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.9145808129475193`*^9, 3.914580882261181*^9}},
+ CellLabel->"In[94]:=",ExpressionUUID->"30bd5168-d64d-40ac-a586-2778446d7ef3"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "2", "3", "4", "5", "6", "7"},
+     {"2", "4", "7", "11", "16", "22", "29"},
+     {"3", "7", "14", "25", "41", "63", "92"},
+     {"4", "11", "25", "50", "91", "154", "246"},
+     {"5", "16", "41", "91", "182", "336", "582"},
+     {"6", "22", "63", "154", "336", "672", "1254"},
+     {"7", "29", "92", "246", "582", "1254", "2508"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.914580877833622*^9, 3.914580882812159*^9}},
+ CellLabel->
+  "Out[94]//MatrixForm=",ExpressionUUID->"2249f94e-131b-4f90-809f-\
+229d53f8ff9e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.914580924578925*^9, 3.914580926867799*^9}, {
+  3.914869511256254*^9, 
+  3.9148695333280077`*^9}},ExpressionUUID->"5c43ce97-4c1a-4108-a2e0-\
+720377071723"],
+
+Cell[BoxData["65536"], "Output",
+ CellChangeTimes->{3.9148695136288357`*^9},
+ CellLabel->"Out[95]=",ExpressionUUID->"b544da5c-1fc0-4f31-af63-9cedfc129eda"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"d", " ", 
+      RowBox[{"2", "^", 
+       RowBox[{"(", 
+        RowBox[{"d", "+", "1"}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"d", "-", "1"}], ")"}], " ", 
+       SuperscriptBox["2", 
+        RowBox[{"d", "+", "1"}]]}], "+", 
+      RowBox[{"8", 
+       RowBox[{"(", 
+        RowBox[{"d", "-", "1"}], ")"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", "0", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9148877338760853`*^9, 3.914887769015368*^9}},
+ CellLabel->"In[96]:=",ExpressionUUID->"6b4b0452-9296-4196-b941-e23469422902"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", "10"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"16", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"48", ",", "48"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"128", ",", "120"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"320", ",", "288"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.91488777628613*^9},
+ CellLabel->"Out[96]=",ExpressionUUID->"721f5345-80c4-4ce5-8afa-2d27afb6e758"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"6", "d"}], "-", "17"}], ")"}], "^", "2"}], ",", 
+     RowBox[{
+      RowBox[{"2", "d"}], "+", 
+      RowBox[{"d", " ", 
+       RowBox[{"2", "^", "d"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", ",", "3", ",", "6"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9149161978093*^9, 3.914916267164967*^9}, {
+  3.914925626980791*^9, 3.914925630135024*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"b119bd8e-6e96-4edd-8183-735cab81201b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "30"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"49", ",", "72"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"169", ",", "170"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"361", ",", "396"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.914916268882249*^9, 3.914925630938838*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"c97e5d5d-93de-4b65-a322-03683fc8c9e4"]
 }, Open  ]]
 },
 WindowSize->{Full, Full},
@@ -95993,7 +97417,7 @@ Cell[CellGroupData[{
 Cell[580, 22, 933, 20, 30, "Input",ExpressionUUID->"e0e830b1-5565-4e46-b7da-b683d319e72f"],
 Cell[1516, 44, 6120, 145, 113, "Output",ExpressionUUID->"40bfc00f-6ff6-49a0-90ef-ffc48de995c1"]
 }, Open  ]],
-Cell[7651, 192, 2651, 73, 125, "Input",ExpressionUUID->"9e70b71f-39c6-4284-a266-9763764ea6a9"],
+Cell[7651, 192, 2651, 73, 104, "Input",ExpressionUUID->"9e70b71f-39c6-4284-a266-9763764ea6a9"],
 Cell[CellGroupData[{
 Cell[10327, 269, 1779, 29, 30, "Input",ExpressionUUID->"a5c9d176-18ea-4517-a6c0-abf0c01fcc25"],
 Cell[12109, 300, 64016, 1254, 2458, "Output",ExpressionUUID->"d3279196-7a58-4d4f-ad91-e7b888b5aacc"]
@@ -96010,16 +97434,16 @@ Cell[82790, 1741, 634, 14, 30, "Input",ExpressionUUID->"863260ae-dd7f-40ce-94fc-
 Cell[83427, 1757, 33290, 667, 736, "Output",ExpressionUUID->"48fe648f-0a6e-4e73-85fe-6f38e22e1bb1"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[116754, 2429, 3820, 76, 111, "Input",ExpressionUUID->"9fe4d825-da04-4948-880c-ffda6a7c6387"],
+Cell[116754, 2429, 3820, 76, 90, "Input",ExpressionUUID->"9fe4d825-da04-4948-880c-ffda6a7c6387"],
 Cell[120577, 2507, 1047320, 31409, 3626, "Output",ExpressionUUID->"ff610e41-b588-4a56-8aaf-aabe4f5dae32"]
 }, Closed]],
 Cell[1167912, 33919, 851, 21, 26, "Input",ExpressionUUID->"4aa0e5a9-692a-4066-9352-7b99e27a875b"],
 Cell[CellGroupData[{
-Cell[1168788, 33944, 3086, 78, 123, "Input",ExpressionUUID->"41c9c632-f394-414e-83d5-ca1f1dabaf0b"],
+Cell[1168788, 33944, 3086, 78, 102, "Input",ExpressionUUID->"41c9c632-f394-414e-83d5-ca1f1dabaf0b"],
 Cell[1171877, 34024, 1047926, 31385, 1841, "Output",ExpressionUUID->"1f8d3099-6595-4d0c-bd34-7184686d34da"]
 }, Open  ]],
 Cell[2219818, 65412, 781, 21, 30, "Input",ExpressionUUID->"4341e182-18be-4953-b473-2dbaee6a2538"],
-Cell[2220602, 65435, 1843, 53, 30, "Input",ExpressionUUID->"009bee1d-c58f-4568-a042-71d0b53e20bd"],
+Cell[2220602, 65435, 1843, 53, 52, "Input",ExpressionUUID->"009bee1d-c58f-4568-a042-71d0b53e20bd"],
 Cell[CellGroupData[{
 Cell[2222470, 65492, 442, 12, 33, "Input",ExpressionUUID->"c14c4fd6-07e0-4721-97bf-4760731fc753"],
 Cell[2222915, 65506, 482, 14, 34, "Output",ExpressionUUID->"89ebaf4b-f1a7-4a1e-bbc7-d2e549851152"]
@@ -96111,7 +97535,7 @@ Cell[3067417, 90781, 757, 19, 34, "Input",ExpressionUUID->"fd13efe0-f354-48c4-a3
 Cell[3068177, 90802, 1042, 34, 38, "Output",ExpressionUUID->"25d6acd2-98ee-42c5-8ab7-001906862af3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3069256, 90841, 3095, 76, 105, "Input",ExpressionUUID->"94d20b1f-4ba0-45db-ac73-96bb82682bf9"],
+Cell[3069256, 90841, 3095, 76, 84, "Input",ExpressionUUID->"94d20b1f-4ba0-45db-ac73-96bb82682bf9"],
 Cell[3072354, 90919, 26364, 810, 269, "Output",ExpressionUUID->"028aa613-6ab1-47df-a576-6faace539c1f"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -96119,7 +97543,7 @@ Cell[3098755, 91734, 2051, 59, 46, "Input",ExpressionUUID->"b64e3e81-1214-45f6-9
 Cell[3100809, 91795, 1360, 27, 391, "Output",ExpressionUUID->"028e2667-2dcc-4939-9374-83f4910e6d65"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3102206, 91827, 2632, 64, 58, "Input",ExpressionUUID->"5a3647f4-6ca5-45dd-a2c2-de934e5fe836"],
+Cell[3102206, 91827, 2632, 64, 34, "Input",ExpressionUUID->"5a3647f4-6ca5-45dd-a2c2-de934e5fe836"],
 Cell[3104841, 91893, 28796, 887, 255, "Output",ExpressionUUID->"f49a4d37-86c6-4585-8419-5768a1cc69e4"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -96257,13 +97681,46 @@ Cell[3215698, 95215, 668, 20, 34, "Input",ExpressionUUID->"51798b10-e41e-4625-9d
 Cell[3216369, 95237, 754, 20, 34, "Output",ExpressionUUID->"d59d5a66-7b03-4692-8ca4-e3a6505fd309"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3217160, 95262, 2515, 74, 105, "Input",ExpressionUUID->"b8b66c17-9a16-469e-906f-a54a09d3ca94"],
+Cell[3217160, 95262, 2515, 74, 76, "Input",ExpressionUUID->"b8b66c17-9a16-469e-906f-a54a09d3ca94"],
 Cell[3219678, 95338, 35509, 590, 511, 1250, 27, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"1484f417-2a54-41ad-baa2-19c5c45e054a"]
 }, Open  ]],
 Cell[3255202, 95931, 151, 3, 30, "Input",ExpressionUUID->"cf8edfe3-799a-453f-8eb0-34f0bd00b0b2"],
 Cell[CellGroupData[{
 Cell[3255378, 95938, 720, 19, 30, "Input",ExpressionUUID->"d0d9b088-1fcd-481c-95e6-d618ec9cc6d9"],
-Cell[3256101, 95959, 592, 11, 351, "Output",ExpressionUUID->"b881894b-44d6-43fe-b327-8f216ebd2a0f"]
+Cell[3256101, 95959, 592, 11, 328, "Output",ExpressionUUID->"b881894b-44d6-43fe-b327-8f216ebd2a0f"]
+}, Open  ]],
+Cell[3256708, 95973, 151, 3, 30, "Input",ExpressionUUID->"741542ec-84ae-498b-9ca7-67b457b3dfa0"],
+Cell[CellGroupData[{
+Cell[3256884, 95980, 2889, 70, 57, "Input",ExpressionUUID->"5f68f4b1-de40-4f9b-8d0b-69fd08f236e7"],
+Cell[3259776, 96052, 34209, 1081, 701, "Output",ExpressionUUID->"8e30b052-1298-4e4e-ba72-a7c8cb2b1af4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3294022, 97138, 211, 3, 30, "Input",ExpressionUUID->"198c2930-bb3d-4746-a1fe-0957b85b5b77"],
+Cell[3294236, 97143, 295, 8, 34, "Output",ExpressionUUID->"356e9c9a-ae4f-470d-ace8-918ddb367567"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3294568, 97156, 295, 6, 30, "Input",ExpressionUUID->"cc6d7ee6-2644-48e5-a287-f21496ebeee2"],
+Cell[3294866, 97164, 176, 2, 34, "Output",ExpressionUUID->"b6e0d63f-89cd-4a4e-9b77-2c80c9efa94a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3295079, 97171, 845, 23, 46, "Input",ExpressionUUID->"535b7cdb-8ec2-4659-bf24-00a735b7f012"],
+Cell[3295927, 97196, 1131, 33, 49, "Output",ExpressionUUID->"e540bda1-b18a-4449-a086-59fcd55c0073"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3297095, 97234, 1430, 40, 30, "Input",ExpressionUUID->"30bd5168-d64d-40ac-a586-2778446d7ef3"],
+Cell[3298528, 97276, 953, 24, 147, "Output",ExpressionUUID->"2249f94e-131b-4f90-809f-229d53f8ff9e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3299518, 97305, 203, 4, 30, "Input",ExpressionUUID->"5c43ce97-4c1a-4108-a2e0-720377071723"],
+Cell[3299724, 97311, 155, 2, 34, "Output",ExpressionUUID->"b544da5c-1fc0-4f31-af63-9cedfc129eda"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3299916, 97318, 693, 21, 34, "Input",ExpressionUUID->"6b4b0452-9296-4196-b941-e23469422902"],
+Cell[3300612, 97341, 561, 17, 34, "Output",ExpressionUUID->"721f5345-80c4-4ce5-8afa-2d27afb6e758"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3301210, 97363, 590, 17, 30, "Input",ExpressionUUID->"b119bd8e-6e96-4edd-8183-735cab81201b"],
+Cell[3301803, 97382, 443, 12, 82, "Output",ExpressionUUID->"c97e5d5d-93de-4b65-a322-03683fc8c9e4"]
 }, Open  ]]
 }
 ]
