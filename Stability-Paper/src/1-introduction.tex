@@ -1,6 +1,6 @@
 \section{Introduction}
 
-A polytope $P$ is said to be 2-level if for every facet-defining hyperplane $H$ there is a parallel hyperplane $H'$ such that $H \cup H'$ contains all vertices of $P$. Basic examples of 2-level polytopes are simplices, hypercubes and cross-polytopes, but they also generalize a variety of interesting polytopes such as Birkhoff, Hanner, and Hansen polytopes, order polytopes and chain polytopes of posets, stable matching polytopes, and stable set polytopes of perfect graphs~\cite{aprile18}. Combinatorial structure of two-level polytopes has also been studied in~\cite{fiorini16}, and enumeration of such polytopes in~\cite{bohn18} led to a beautiful conjecture about their vertex and facet count, which was proven in~\cite{kupavskii22}:
+A polytope $P$ is {\it 2-level} if for every facet-defining hyperplane $H$ there is a parallel hyperplane $H'$ such that $H \cup H'$ contains all vertices of $P$. Basic examples of 2-level polytopes are simplices, hypercubes and cross-polytopes, but they also generalize a variety of interesting polytopes such as Birkhoff, Hanner, and Hansen polytopes, order polytopes and chain polytopes of posets, stable matching polytopes, and stable set polytopes of perfect graphs~\cite{aprile18}. Combinatorial structure of two-level polytopes has also been studied in~\cite{fiorini16}, and enumeration of such polytopes in~\cite{bohn18} led to a beautiful conjecture about their vertex and facet count, which was proven in~\cite{kupavskii22}:
 \begin{restatable}{theorem}{twoLevelOld}
     \label{two_level_old_bound}
     If $P$ is a $d$-dimensional 2-level polytope, it's number of vertices $f_0(P)$ and facets $f_{d-1}(P)$ satisfy
@@ -8,23 +8,39 @@ A polytope $P$ is said to be 2-level if for every facet-defining hyperplane $H$ 
         f_0(P) \cdot f_{d-1}(P) \leq d 2^{d+1}.
     \]
 \end{restatable}
-\noindent This bound is tight by considering $P$ that is affinely isomorphic to the cube or the cross-polytope. Authors of~\cite{bohn18} conjectured that those are the only instances where equality is attained (personal communication). In this paper, we prove this in a strong sense:
+\noindent This bound is tight, as is witnessed by polytopes that are affinely isomorphic to the cube or the cross-polytope. Authors of~\cite{bohn18} conjectured that those are the only instances where equality is attained (see \cite{aprile18}). In this paper, we prove this in a strong sense:
 
 \begin{restatable}{theorem}{twoLevelNew}
     \label{two_level_new_bound}
-    For $d>1$ let $P$ be a $d$-dimensional $2$-level polytope that is not affinely isomorphic to the cube or the cross-polytope. Then 
+    Fix $d>1$. Let $P$ be a $d$-dimensional $2$-level polytope that is not affinely isomorphic to the cube or the cross-polytope. Then 
     \[
         f_0(P) \cdot f_{d-1}(P) \leq \left(d-1\right) 2^{d+1} + 8\left(d-1\right).
     \]
 \end{restatable}
+ \noindent The following two examples demonstrate tightness of the bound in Theorem \ref{two_level_new_bound}.
+\begin{example}[Suspension of a cube]\label{CubeSuspension}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        P=\operatorname{Conv}\Biggl(\left\{\sum_{i=1}^{d-1}\varepsilon_i e_i\right\}\cup\left\{e_d, -e_d\right\}\Biggr)\text{, where }\varepsilon_i\text{ range over }\left\{-1, 1\right\}.
+    \end{equation*}
+ Here $f_0(P) = 2 + 2^{d-1}$ and $f_{d-1}(P) = 4(d-1)$.
+\end{example}
+\begin{example}[Cross-polytope $\times$ segment]\label{OctahedronCrossSegment}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        P=\operatorname{Conv}\bigl(\left\{\eps_i e_i + \eps_d e_d\right\}_{i\leq d-1}\bigr)\text{, where }\eps_i\text{ range over }\left\{-1, 1\right\}\text{ for $i\in[d]$}.
+    \end{equation*}
+      This is (up to coordinate scaling) the dual of the polytope in the previous example and, in particular,  $f_0(P) = 4(d-1)$ and $f_{d-1}(P) = 2 + 2^{d-1}$. 
+\end{example}
 
-\noindent Our main tool is going to be a stronger theorem regarding so-called families of vectors with binary scalar products:
+
+\noindent As in the paper \cite{kupavskii22}, the main intermediate result that is of independent interest concerns families of vectors with binary scalar products.
 
 \begin{restatable}[]{theorem}{mainth}\label{d2d_plus_2d}
-     Let $\aaa,\bb \subseteq \R^d$ both linearly span $\R^d$ such that $\la a, b\ra \in \{0,1\}$ holds for all $a \in \aaa$, $b \in \bb$. Furthermore, suppose $\aaa$ and $\bb$ both have the size of at least $d+2$. Then $\left|\mathcal{A}\right| \cdot\left|\mathcal{B}\right| \leq d 2^d + 2d$.
+     Let $\aaa,\bb \subseteq \R^d$ be families of vectors that both linearly span $\R^d$. Suppose that $\la a, b\ra \in \{0,1\}$ holds for all $a \in \aaa$, $b \in \bb$. Furthermore, suppose that $|\aaa|,|\bb|\ge d+2$. Then $\left|\mathcal{A}\right| \cdot\left|\mathcal{B}\right| \leq d 2^d + 2d$.
 \end{restatable}
 
-\noindent In other words, our main tool is the stability of the bound in Theorem \ref{d_plus_one_two_d}, which was the main result of~\cite{kupavskii22}:
+\noindent In other words, this theorem is a tight stability result for the bound in the following theorem, which was the main result of~\cite{kupavskii22}.
 
 \begin{restatable}{theorem}{oldMainTh}
     \label{d_plus_one_two_d}
@@ -32,8 +48,27 @@ A polytope $P$ is said to be 2-level if for every facet-defining hyperplane $H$ 
     Then we have $|\aaa| \cdot |\bb| \le (d+1) 2^d$.
 \end{restatable}
 
-\paragraph{Notation}
-In what follows, We will often treat vectors in $\R^d$ as points in an affine space, with $\operatorname{dim}$ always referring to the affine dimension while $\operatorname{span}$ referrs to linear span. The set of integers  from $1$ to $n$ is denoted $[n]$. 
+\noindent Two examples that demonstrate tightness of the bound in Theorem \ref{d2d_plus_2d} are
+
+\begin{example}\label{cubeOctop}
+    Let $\{e_i\}$ be the standard basis of $\R^d$, 
+    \begin{equation*}
+        \aaa=\left\{\sum_{i=2}^{d}\delta_i e_i\right\}\cup\left\{e_1\right\}\text{, }\bb=\left\{\delta_1 e_1 + e_j\right\} \cup \left\{e_1, 0\right\}\text{, where }\delta_i\text{ range over }\left\{0, 1\right\}\text{ and }j\text{ over }[2,d].
+    \end{equation*}
+    Here $\left|\mathcal{A}\right|=2^{d-1}+1$ and $\left|\mathcal{B}\right|=2d$.
+\end{example}
+
+\begin{example}\label{crosspoly}
+    Let $\{e_i\}$ be the standard basis of $\mathbb{R}^d$,
+    \begin{equation*}
+        \aaa=\left\{e_d+\sum_{i=1}^{d-1}\varepsilon_i e_i\right\}\cup\left\{0\right\}\text{, }\bb=\left\{\frac{1}{2}\left(e_d+\varepsilon_i e_i\right)\right\}\text{, where }\varepsilon_i\text{ range over }\left\{-1, 1\right\}\text{ and $i$ over }[d].
+    \end{equation*}
+    As in Example \ref{cubeOctop}, $\left|\aaa\right|=2^{d-1}+1$ and $\left|\bb\right|=2d$.
+\end{example}
+
+The proof of Theorem~\ref{d2d_plus_2d} builds on the proof of Theorem~\ref{d_plus_one_two_d}, thus, in the next section we present the necessary claims and inequalities from \cite{kupavskii22}. In Section~\ref{sec31} we prove a baby variant of Theorem~\ref{d2d_plus_2d}, that gives uniqueness of the extremal example for Theorem~\ref{d_plus_one_two_d}. The structure of this proof is then reused in Section~\ref{sec32}, where we prove Theorem~\ref{d2d_plus_2d}. In Section~\ref{sec2level} we prove our main result, Theorem~\ref{two_level_new_bound}. 
+
+The proofs of our main results build on the proofs from \cite{kupavskii22}, but require several new ingredients, both combinatorial and, most importantly, geometric. Unfortunately, there is quite a bit of case analysis involved, one reason being that there are actually many different configurations that are close to the bound in Theorem~\ref{d2d_plus_2d}. Filtering all of them out requires different considerations. Geometrically, the most interesting cases are: 3c in the proof of Theorem~\ref{d2d_plus_2d}, where $\aaa$ and $\bb$ switch roles, and we have to study a projection onto a certain subspace formed by vectors of $\bb$, followed by adding a twist on the choice of the vector $b_d$, along which we project in order to use induction; the last case in the proof of Theorem~\ref{two_level_new_bound}, in which wenreveal the exact geometric structure of $\aaa$ by reducing the problem to a simple question about families of subsets of $[d]$ with small pairwise differences.  
 
 \paragraph{Outline}
 The next section lays out the proof of our main tool. In Section~\ref{sec2level} we provide the proof of Theorem~\ref{two_level_new_bound} and Section~\ref{secClaims} contains proofs of claims from \cite{kupavskii22} that we use. Short but technical proofs of some statements used in the main sections are provided in Appendix~\ref{appendix}, as well as a conjecture that generalises Theorem~\ref{d2d_plus_2d}.
