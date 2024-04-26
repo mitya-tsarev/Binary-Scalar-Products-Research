@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   3321514,      97720]
-NotebookOptionsPosition[   3302262,      97397]
-NotebookOutlinePosition[   3302691,      97414]
-CellTagsIndexPosition[   3302648,      97411]
+NotebookDataLength[   3388166,      99200]
+NotebookOptionsPosition[   3368472,      98871]
+NotebookOutlinePosition[   3368901,      98888]
+CellTagsIndexPosition[   3368858,      98885]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -97393,7 +97393,1481 @@ Cell[BoxData[
     RowBox[{"361", ",", "396"}], "}"}]}], "}"}]], "Output",
  CellChangeTimes->{3.914916268882249*^9, 3.914925630938838*^9},
  CellLabel->"Out[98]=",ExpressionUUID->"c97e5d5d-93de-4b65-a322-03683fc8c9e4"]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MatToGraph", "[", 
+   RowBox[{"mat_", "?", "MatrixQ"}], "]"}], ":=", 
+  RowBox[{"AdjacencyGraph", "[", 
+   RowBox[{
+    RowBox[{"ArrayFlatten", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "mat"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Transpose", "[", "mat", "]"}], ",", "0"}], "}"}]}], "}"}], 
+     "]"}], ",", 
+    RowBox[{"VertexStyle", "->", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"i", "->", 
+           RowBox[{"Lighter", "[", "Blue", "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "mat", "]"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"i", "->", "Yellow"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{
+             RowBox[{"Length", "[", "mat", "]"}], "+", "1"}], ",", 
+            RowBox[{
+             RowBox[{"Length", "[", "mat", "]"}], "+", 
+             RowBox[{"Length", "[", 
+              RowBox[{"mat", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "}"}]}], "]"}]}], 
+       "}"}], "]"}]}], ",", 
+    RowBox[{"VertexSize", "->", "0.2"}], ",", 
+    RowBox[{"EdgeStyle", "->", "White"}], ",", 
+    RowBox[{"Background", "->", "Black"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.923091881130642*^9, 3.923091881134008*^9}, {
+  3.923092216757432*^9, 3.9230922797874804`*^9}, {3.9230923336168756`*^9, 
+  3.9230925541066103`*^9}, {3.923092618998294*^9, 3.923092645685934*^9}},
+ CellLabel->
+  "In[109]:=",ExpressionUUID->"71dcab10-4c83-413a-ab76-670da0389436"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tab", "=", 
+  RowBox[{"Labeled", "[", 
+   RowBox[{
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Prepend", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<\>\"", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Example 3\>\"", ",", "White"}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Example 4\>\"", ",", "White"}], "]"}]}], "}"}], "]"}],
+        "@", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"A1", ",", "B1", ",", "A2", ",", "B2", ",", "zero"}], 
+            "}"}], ",", 
+           RowBox[{
+            RowBox[{"zero", "=", 
+             RowBox[{"{", 
+              RowBox[{"Table", "[", 
+               RowBox[{"0", ",", "d"}], "]"}], "}"}]}], ";", 
+            RowBox[{"A1", "=", 
+             RowBox[{"Complement", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Append", "[", 
+                  RowBox[{
+                   RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", "1"}], "]"}], ",", 
+                 
+                 RowBox[{"Sequence", "@@", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"Append", "[", "0", "]"}], "/@", 
+                    RowBox[{"Tuples", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}]}], ")"}]}]}], "}"}], ",",
+                "zero"}], "]"}]}], ";", 
+            RowBox[{"B1", "=", 
+             RowBox[{"Complement", "[", 
+              RowBox[{
+               RowBox[{"With", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"bas0", "=", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", 
+                    RowBox[{"Sequence", "@@", 
+                    RowBox[{"NestList", "[", 
+                    RowBox[{"RotateLeft", ",", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "2"}]}], "]"}], ",", "1"}], "]"}], ",", 
+                    
+                    RowBox[{"d", "-", "2"}]}], "]"}]}]}], "}"}]}], "}"}], ",", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Append", "[", "0", "]"}], "/@", "bas0"}], ",", 
+                   RowBox[{
+                    RowBox[{"Append", "[", "1", "]"}], "/@", "bas0"}]}], 
+                  "]"}]}], "]"}], ",", "zero"}], "]"}]}], ";", 
+            RowBox[{"A2", "=", 
+             RowBox[{"{", 
+              RowBox[{"Sequence", "@@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Append", "[", "1", "]"}], "/@", 
+                 RowBox[{"Tuples", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+                   RowBox[{"d", "-", "1"}]}], "]"}]}], ")"}]}], "}"}]}], ";", 
+            
+            RowBox[{"B2", "=", 
+             RowBox[{"Complement", "[", 
+              RowBox[{
+               RowBox[{
+                FractionBox["1", "2"], "\[Times]", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Append", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", "1"}], "]"}], "+", 
+                    "#"}], "&"}], "/@", 
+                  RowBox[{"Join", "[", 
+                   RowBox[{
+                    RowBox[{"NestList", "[", 
+                    RowBox[{"RotateLeft", ",", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", "1"}], "]"}], ",", 
+                    
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", 
+                    RowBox[{"NestList", "[", 
+                    RowBox[{"RotateLeft", ",", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}], ",", 
+                    RowBox[{"-", "1"}]}], "]"}], ",", 
+                    RowBox[{"d", "-", "1"}]}], "]"}]}], "]"}]}], ")"}]}], ",",
+                "zero"}], "]"}]}], ";", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"\"\<d=\>\"", "<>", 
+                 RowBox[{"ToString", "[", "d", "]"}]}], ",", "White"}], "]"}],
+               ",", 
+              RowBox[{"MatToGraph", "[", 
+               RowBox[{"A1", ".", 
+                RowBox[{"(", 
+                 RowBox[{"B1", "\[Transpose]"}], ")"}]}], "]"}], ",", 
+              RowBox[{"MatToGraph", "[", 
+               RowBox[{"A2", ".", 
+                RowBox[{"(", 
+                 RowBox[{"B2", "\[Transpose]"}], ")"}]}], "]"}]}], "}"}]}]}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"d", ",", "2", ",", "5"}], "}"}]}], "]"}]}], ",", 
+      RowBox[{"Background", "->", "Black"}], ",", 
+      RowBox[{"Frame", "->", "All"}], ",", 
+      RowBox[{"FrameStyle", "->", "Gray"}]}], "]"}], ",", 
+    RowBox[{"Style", "[", 
+     RowBox[{
+      RowBox[{"Column", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Bipartite graphs for two examples,\>\"", ",", 
+          "\"\< isolated vertices corresponding to zeros dropped\>\""}], 
+         "}"}], ",", 
+        RowBox[{"Alignment", "->", "Center"}]}], "]"}], ",", "White", ",", 
+      RowBox[{"Background", "->", "Black"}], ",", 
+      RowBox[{"TextAlignment", "->", "Center"}]}], "]"}], ",", "Top"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.92308940850592*^9, 3.923089413431203*^9}, {
+   3.923089619086239*^9, 3.92308971230914*^9}, {3.9230897552247753`*^9, 
+   3.923089845312996*^9}, {3.9230898753237743`*^9, 3.9230900105901623`*^9}, {
+   3.923090041030384*^9, 3.9230900440468903`*^9}, {3.9230901093439293`*^9, 
+   3.923090109820653*^9}, {3.923090163637658*^9, 3.92309044347633*^9}, {
+   3.9230904867632113`*^9, 3.923090651279904*^9}, {3.923090687089411*^9, 
+   3.923090822449296*^9}, {3.923090860454378*^9, 3.923091012105237*^9}, {
+   3.9230910720820513`*^9, 3.923091132551732*^9}, {3.9230911628857193`*^9, 
+   3.923091179533812*^9}, {3.923091221360836*^9, 3.92309128283025*^9}, {
+   3.923091314177964*^9, 3.923091343857329*^9}, {3.923091516345579*^9, 
+   3.9230916065678988`*^9}, {3.923091659212824*^9, 3.9230917382315187`*^9}, {
+   3.923091909891089*^9, 3.92309194931244*^9}, {3.9230919796451597`*^9, 
+   3.923092051490602*^9}, 3.9230925634790077`*^9, {3.923092696513215*^9, 
+   3.923092716262701*^9}, {3.923092788728189*^9, 3.92309288839799*^9}, {
+   3.923092944783556*^9, 3.923092948087111*^9}, {3.923092994714016*^9, 
+   3.923093116053318*^9}, {3.9230931851887608`*^9, 3.923093243325329*^9}, {
+   3.923093312061401*^9, 3.923093436091712*^9}, {3.9230936472351017`*^9, 
+   3.923093696527795*^9}, {3.9230937299729567`*^9, 3.923093743828526*^9}, {
+   3.9230938215189466`*^9, 3.9230938811590443`*^9}, {3.923093943156258*^9, 
+   3.92309402166772*^9}, {3.9230940549875927`*^9, 
+   3.923094102724477*^9}},ExpressionUUID->"bbdcad32-7b83-4f4f-b7bc-\
+065441297011"],
+
+Cell[BoxData[
+ TemplateBox[{
+   TagBox[
+    GridBox[{{"\"\"", 
+       StyleBox["\"Example 3\"", 
+        GrayLevel[1], StripOnInput -> False], 
+       StyleBox["\"Example 4\"", 
+        GrayLevel[1], StripOnInput -> False]}, {
+       StyleBox["\"d=2\"", 
+        GrayLevel[1], StripOnInput -> False], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5}, {Null, 
+               SparseArray[
+               Automatic, {5, 5}, 0, {
+                1, {{0, 2, 4, 5, 6, 8}, {{3}, {5}, {4}, {5}, {1}, {2}, {1}, {
+                  2}}}, Pattern}]}, {Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {
+                5 -> RGBColor[1, 1, 0], 3 -> RGBColor[1, 1, 0], 1 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 4 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{1., 6.123233995736766*^-16}, {3., 
+             2.4492935982947064`*^-16}, {0., 7.347880794884119*^-16}, {4., 
+             0.}, {2., 4.898587196589413*^-16}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                ArrowBox[{{1, 3}, {1, 5}, {2, 4}, {2, 5}}, 0.1]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.1], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.1], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[4, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[5, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5}, {Null, 
+               SparseArray[
+               Automatic, {5, 5}, 0, {
+                1, {{0, 2, 4, 5, 7, 8}, {{3}, {4}, {4}, {5}, {1}, {1}, {2}, {
+                  2}}}, Pattern}]}, {Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {
+                5 -> RGBColor[1, 1, 0], 3 -> RGBColor[1, 1, 0], 1 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 4 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{1., 6.123233995736766*^-16}, {3., 
+             2.4492935982947064`*^-16}, {0., 7.347880794884119*^-16}, {2., 
+             4.898587196589413*^-16}, {4., 0.}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                ArrowBox[{{1, 3}, {1, 4}, {2, 4}, {2, 5}}, 0.1]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.1], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.1], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[4, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[5, 0.1], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}]}, {
+       StyleBox["\"d=3\"", 
+        GrayLevel[1], StripOnInput -> False], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9}, {Null, 
+               SparseArray[
+               Automatic, {9, 9}, 0, {
+                1, {{0, 3, 5, 7, 11, 12, 14, 17, 19, 22}, {{5}, {7}, {9}, {
+                  6}, {7}, {8}, {9}, {6}, {7}, {8}, {9}, {1}, {2}, {4}, {1}, {
+                  2}, {4}, {3}, {4}, {1}, {3}, {4}}}, Pattern}]}, {
+              Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {
+                5 -> RGBColor[1, 1, 0], 7 -> RGBColor[1, 1, 0], 3 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 1 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 8 -> RGBColor[1, 1, 0], 6 -> 
+                 RGBColor[1, 1, 0], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 4 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{1.0352367782069345`, 1.4701044559237906`}, {
+             2.488829327419481, 2.934316066403313}, {2.4828555588589913`, 
+             0.}, {2.650431627174107, 1.4675075694391448`}, {0., 
+             1.471439740112273}, {3.1145669374969502`, 2.4106028151276493`}, {
+             1.89475574322129, 2.1379852391444647`}, {3.1109362834137615`, 
+             0.5224788891527005}, {1.892532690836593, 0.799951932776265}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 5}, {1, 7}, {1, 9}, {2, 6}, {2, 7}, {3, 8}, {3, 
+                 9}, {4, 6}, {4, 7}, {4, 8}, {4, 9}}, 0.08159798565082288]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.08159798565082288], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.08159798565082288], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.08159798565082288], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.08159798565082288], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.08159798565082288], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[6, 0.08159798565082288], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[7, 0.08159798565082288], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[8, 0.08159798565082288], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[9, 0.08159798565082288], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9}, {Null, 
+               SparseArray[
+               Automatic, {9, 9}, 0, {
+                1, {{0, 3, 6, 9, 12, 14, 16, 20, 22, 24}, {{5}, {6}, {7}, {
+                  5}, {7}, {8}, {6}, {7}, {9}, {7}, {8}, {9}, {1}, {2}, {1}, {
+                  3}, {1}, {2}, {3}, {4}, {2}, {4}, {3}, {4}}}, Pattern}]}, {
+              Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {
+                5 -> RGBColor[1, 1, 0], 7 -> RGBColor[1, 1, 0], 3 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 1 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 8 -> RGBColor[1, 1, 0], 6 -> 
+                 RGBColor[1, 1, 0], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 4 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{2.0406727355478043`, 0.990813374244566}, {
+             0.991521949039728, 0.}, {1.0502020069327447`, 
+             2.041033021417152}, {0., 1.0494041246193873`}, {
+             1.9803555988761683`, 0.0037563101939364074`}, {
+             2.0379561011704386`, 1.9805237992287883`}, {1.0198806929250979`, 
+             1.0200967429381047`}, {0.0033980149769505807`, 
+             0.0598921331193889}, {0.06107821214377762, 2.037162318502798}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 5}, {1, 6}, {1, 7}, {2, 5}, {2, 7}, {2, 8}, {3, 
+                 6}, {3, 7}, {3, 9}, {4, 7}, {4, 8}, {4, 9}}, 
+                 0.09888407844112868]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.09888407844112868], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.09888407844112868], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.09888407844112868], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.09888407844112868], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.09888407844112868], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[6, 0.09888407844112868], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[7, 0.09888407844112868], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[8, 0.09888407844112868], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[9, 0.09888407844112868], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}]}, {
+       StyleBox["\"d=4\"", 
+        GrayLevel[1], StripOnInput -> False], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}, {Null, 
+               SparseArray[
+               Automatic, {15, 15}, 0, {
+                1, {{0, 4, 6, 8, 12, 14, 18, 22, 28, 29, 33, 38, 42, 47, 51, 
+                  56}, {{9}, {11}, {13}, {15}, {10}, {11}, {12}, {13}, {10}, {
+                  11}, {12}, {13}, {14}, {15}, {10}, {11}, {14}, {15}, {12}, {
+                  13}, {14}, {15}, {10}, {11}, {12}, {13}, {14}, {15}, {1}, {
+                  2}, {4}, {6}, {8}, {1}, {2}, {4}, {6}, {8}, {3}, {4}, {7}, {
+                  8}, {1}, {3}, {4}, {7}, {8}, {5}, {6}, {7}, {8}, {1}, {5}, {
+                  6}, {7}, {8}}}, Pattern}]}, {
+              Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {14 -> RGBColor[1, 1, 0], 8 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 6 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 3 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 11 -> RGBColor[1, 1, 0], 7 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 15 -> RGBColor[1, 1, 0], 4 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 5 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 10 -> RGBColor[1, 1, 0], 12 -> 
+                 RGBColor[1, 1, 0], 13 -> RGBColor[1, 1, 0], 1 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{1.2530218804803577`, 1.831743474126527}, {
+             4.076932772830775, 1.8390685212359046`}, {1.6838603241982055`, 
+             0.}, {2.869905660001147, 0.9960557627602484}, {
+             1.6714161383284838`, 3.6700182987153167`}, {2.8643239731387022`, 
+             2.679286071270793}, {1.7843466979889309`, 1.8362875747081715`}, {
+             2.3403896979537704`, 1.837503760952325}, {0., 
+             1.8261147611524293`}, {3.40123827659683, 1.8400095198601771`}, {
+             2.8295760628063515`, 1.836611726623727}, {2.177041334835749, 
+             0.7790708243839233}, {1.7803532950927718`, 
+             1.0343909411924965`}, {2.1696377142071546`, 2.894109153168415}, {
+             1.7742450499855018`, 2.637013959994436}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 9}, {1, 11}, {1, 13}, {1, 15}, {2, 10}, {2, 
+                 11}, {3, 12}, {3, 13}, {4, 10}, {4, 11}, {4, 12}, {4, 13}, {
+                 5, 14}, {5, 15}, {6, 10}, {6, 11}, {6, 14}, {6, 15}, {7, 
+                 12}, {7, 13}, {7, 14}, {7, 15}, {8, 10}, {8, 11}, {8, 12}, {
+                 8, 13}, {8, 14}, {8, 15}}, 0.047162834655421454`]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[6, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[7, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[8, 0.047162834655421454`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[9, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[10, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[11, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[12, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[13, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[14, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[15, 0.047162834655421454`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}, {Null, 
+               SparseArray[
+               Automatic, {15, 15}, 0, {
+                1, {{0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 52, 56, 60, 
+                  64}, {{9}, {10}, {11}, {12}, {9}, {10}, {12}, {13}, {9}, {
+                  11}, {12}, {14}, {9}, {12}, {13}, {14}, {10}, {11}, {12}, {
+                  15}, {10}, {12}, {13}, {15}, {11}, {12}, {14}, {15}, {12}, {
+                  13}, {14}, {15}, {1}, {2}, {3}, {4}, {1}, {2}, {5}, {6}, {
+                  1}, {3}, {5}, {7}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {
+                  2}, {4}, {6}, {8}, {3}, {4}, {7}, {8}, {5}, {6}, {7}, {8}}},
+                  Pattern}]}, {Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {14 -> RGBColor[1, 1, 0], 8 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 6 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 3 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 11 -> RGBColor[1, 1, 0], 7 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 15 -> RGBColor[1, 1, 0], 4 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 5 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 10 -> RGBColor[1, 1, 0], 12 -> 
+                 RGBColor[1, 1, 0], 13 -> RGBColor[1, 1, 0], 1 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[1, 1, 0]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            
+            GraphicsComplexBox[{{0.7174782331831816, 1.618679111407625}, {
+             0.6251202731322264, 0.3486239780184779}, {0.6303615174222358, 
+             2.138894985864638}, {0.7162516263791686, 0.8682250450185072}, {
+             2.129932164610834, 1.6139223601808537`}, {2.2148234243884475`, 
+             0.34592747380551236`}, {2.220252487144775, 
+             2.1345640934733567`}, {2.126948853260904, 0.865601136939415}, {
+             0., 1.2460125350113562`}, {1.4207754249420346`, 
+             0.7137012373217808}, {1.4264860540110214`, 
+             2.4824695870138203`}, {1.4216403783433227`, 
+             1.2418048791788963`}, {1.4193381480159746`, 0.}, {
+             1.42385463152158, 1.7712324151431496`}, {2.8445403984869753`, 
+             1.2383995936410972`}}, {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 9}, {1, 10}, {1, 11}, {1, 12}, {2, 9}, {2, 
+                 10}, {2, 12}, {2, 13}, {3, 9}, {3, 11}, {3, 12}, {3, 14}, {4,
+                  9}, {4, 12}, {4, 13}, {4, 14}, {5, 10}, {5, 11}, {5, 12}, {
+                 5, 15}, {6, 10}, {6, 12}, {6, 13}, {6, 15}, {7, 11}, {7, 
+                 12}, {7, 14}, {7, 15}, {8, 12}, {8, 13}, {8, 14}, {8, 15}}, 
+                 0.05270509049473861]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[6, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[7, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[8, 0.05270509049473861], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[9, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[10, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[11, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[12, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[13, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[14, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[15, 0.05270509049473861], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}]}, {
+       StyleBox["\"d=5\"", 
+        GrayLevel[1], StripOnInput -> False], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+               18, 19, 20, 21, 22, 23, 24, 25}, {Null, 
+               SparseArray[
+               Automatic, {25, 25}, 0, {
+                1, {{0, 5, 7, 9, 13, 15, 19, 23, 29, 31, 35, 39, 45, 49, 55, 
+                  61, 69, 70, 78, 87, 95, 104, 112, 121, 129, 138}, {{17}, {
+                  19}, {21}, {23}, {25}, {18}, {19}, {20}, {21}, {18}, {19}, {
+                  20}, {21}, {22}, {23}, {18}, {19}, {22}, {23}, {20}, {21}, {
+                  22}, {23}, {18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {
+                  18}, {19}, {24}, {25}, {20}, {21}, {24}, {25}, {18}, {19}, {
+                  20}, {21}, {24}, {25}, {22}, {23}, {24}, {25}, {18}, {19}, {
+                  22}, {23}, {24}, {25}, {20}, {21}, {22}, {23}, {24}, {25}, {
+                  18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {1}, {2}, {
+                  4}, {6}, {8}, {10}, {12}, {14}, {16}, {1}, {2}, {4}, {6}, {
+                  8}, {10}, {12}, {14}, {16}, {3}, {4}, {7}, {8}, {11}, {
+                  12}, {15}, {16}, {1}, {3}, {4}, {7}, {8}, {11}, {12}, {
+                  15}, {16}, {5}, {6}, {7}, {8}, {13}, {14}, {15}, {16}, {
+                  1}, {5}, {6}, {7}, {8}, {13}, {14}, {15}, {16}, {9}, {10}, {
+                  11}, {12}, {13}, {14}, {15}, {16}, {1}, {9}, {10}, {11}, {
+                  12}, {13}, {14}, {15}, {16}}}, Pattern}]}, {
+              Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {14 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 25 -> RGBColor[1, 1, 0], 8 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 6 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 3 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 11 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 24 -> RGBColor[1, 1, 0], 7 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 15 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 18 -> RGBColor[1, 1, 0], 17 -> 
+                 RGBColor[1, 1, 0], 19 -> RGBColor[1, 1, 0], 16 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 22 -> RGBColor[1, 1, 0], 4 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 5 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 20 -> RGBColor[1, 1, 0], 10 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 23 -> RGBColor[1, 1, 0], 12 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 13 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 21 -> RGBColor[1, 1, 0], 1 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            GraphicsComplexBox[CompressedData["
+1:eJwBoQFe/iFib1JlAgAAABkAAAACAAAAzDgfTgXwBUCalfgTvqD3Pwg5ip+2
+7ANAfA5UILjnC0BA0KjOzo3YP8Ae3xAfF8s/Zu3Pi2In8j8fkJv37AICQAAA
+AAAAAAAAiKTOfOK0AECWkhzBKhX0P3K4uacH8QVAyIJVgwk01D+QitQgocjy
+Pzlwk01bpvU/bh2g4Dc2AEDAqhymsM8JQAAAAAAAAAAAj588Y1eTB0AdsUJO
+4oX9Px4qzRjHNPw/CGbeyZxWxD/0L8kiRxsBQGhwueqFqfY/jrkKMdHf+z/+
+sM8UUDXoPyA6OywXrABAW2/YmUeI/D8IgoSuoYT2P1b46L9VJuU/6RJ/qSpM
+/D+U/9EIYEr4P46RxIun9BBAWJw9wiBe+D/gUmVUqPr/P9BVk/trOwRA5Lg+
++96gAUCBwu1o3MACQGj56sNOI/A/6MtS2LRS8D8ZBOUV4Y31P3+ORTrjmvE/
+6Bu+bnvr7D/UtAVAXyr6P3qQ8iuH+PM/Yt3tepf0+T9hrWDOB/ACQICKhCh4
+eeY/+kFHX8sRBECO9M9/mJLsP9glv/Y=
+             "], {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 17}, {1, 19}, {1, 21}, {1, 23}, {1, 25}, {2, 
+                 18}, {2, 19}, {3, 20}, {3, 21}, {4, 18}, {4, 19}, {4, 20}, {
+                 4, 21}, {5, 22}, {5, 23}, {6, 18}, {6, 19}, {6, 22}, {6, 
+                 23}, {7, 20}, {7, 21}, {7, 22}, {7, 23}, {8, 18}, {8, 19}, {
+                 8, 20}, {8, 21}, {8, 22}, {8, 23}, {9, 24}, {9, 25}, {10, 
+                 18}, {10, 19}, {10, 24}, {10, 25}, {11, 20}, {11, 21}, {11, 
+                 24}, {11, 25}, {12, 18}, {12, 19}, {12, 20}, {12, 21}, {12, 
+                 24}, {12, 25}, {13, 22}, {13, 23}, {13, 24}, {13, 25}, {14, 
+                 18}, {14, 19}, {14, 22}, {14, 23}, {14, 24}, {14, 25}, {15, 
+                 20}, {15, 21}, {15, 22}, {15, 23}, {15, 24}, {15, 25}, {16, 
+                 18}, {16, 19}, {16, 20}, {16, 21}, {16, 22}, {16, 23}, {16, 
+                 24}, {16, 25}}, 0.02373483118320385]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[6, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[7, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[8, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[9, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[10, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[11, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[12, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[13, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[14, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[15, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[16, 0.02373483118320385], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[17, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[18, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[19, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[20, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[21, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[22, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[23, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[24, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[25, 0.02373483118320385], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}], 
+       GraphicsBox[
+        NamespaceBox["NetworkGraphics", 
+         DynamicModuleBox[{Typeset`graph = HoldComplete[
+             
+             Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+               18, 19, 20, 21, 22, 23, 24, 25}, {Null, 
+               SparseArray[
+               Automatic, {25, 25}, 0, {
+                1, {{0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70,
+                   75, 80, 88, 96, 104, 112, 128, 136, 144, 152, 160}, {{
+                  17}, {18}, {19}, {20}, {21}, {17}, {18}, {19}, {21}, {22}, {
+                  17}, {18}, {20}, {21}, {23}, {17}, {18}, {21}, {22}, {23}, {
+                  17}, {19}, {20}, {21}, {24}, {17}, {19}, {21}, {22}, {24}, {
+                  17}, {20}, {21}, {23}, {24}, {17}, {21}, {22}, {23}, {24}, {
+                  18}, {19}, {20}, {21}, {25}, {18}, {19}, {21}, {22}, {25}, {
+                  18}, {20}, {21}, {23}, {25}, {18}, {21}, {22}, {23}, {25}, {
+                  19}, {20}, {21}, {24}, {25}, {19}, {21}, {22}, {24}, {25}, {
+                  20}, {21}, {23}, {24}, {25}, {21}, {22}, {23}, {24}, {25}, {
+                  1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {1}, {2}, {3}, {4}, {
+                  9}, {10}, {11}, {12}, {1}, {2}, {5}, {6}, {9}, {10}, {13}, {
+                  14}, {1}, {3}, {5}, {7}, {9}, {11}, {13}, {15}, {1}, {2}, {
+                  3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {
+                  14}, {15}, {16}, {2}, {4}, {6}, {8}, {10}, {12}, {14}, {
+                  16}, {3}, {4}, {7}, {8}, {11}, {12}, {15}, {16}, {5}, {6}, {
+                  7}, {8}, {13}, {14}, {15}, {16}, {9}, {10}, {11}, {12}, {
+                  13}, {14}, {15}, {16}}}, Pattern}]}, {
+              Background -> GrayLevel[0], EdgeStyle -> {
+                 GrayLevel[1]}, VertexSize -> {0.2}, 
+               VertexStyle -> {14 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 25 -> RGBColor[1, 1, 0], 8 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 6 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 3 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 2 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 11 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 24 -> RGBColor[1, 1, 0], 7 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 15 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 18 -> RGBColor[1, 1, 0], 17 -> 
+                 RGBColor[1, 1, 0], 19 -> RGBColor[1, 1, 0], 16 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 22 -> RGBColor[1, 1, 0], 4 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 5 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 20 -> RGBColor[1, 1, 0], 10 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 23 -> RGBColor[1, 1, 0], 12 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 13 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 21 -> RGBColor[1, 1, 0], 1 -> 
+                 RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1], 9 -> RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1]}}]]}, 
+          TagBox[
+           GraphicsGroupBox[
+            GraphicsComplexBox[CompressedData["
+1:eJwBoQFe/iFib1JlAgAAABkAAAACAAAAgZu4dTJs4D9yUeTgyEHZP0hm6bLv
+z+U/AMBA21Aslz8AAAAAAAAAACfdjPn7mPs/QFhYhQkImT+og1Jah97yP/yZ
+lRep/fs//mzmJATm6D+/Ly5I3BkAQLyqgqDM7uQ/wjcBmaX+8z9nmMazWwkC
+QOuKNH94+PU/Ys76zebp/T/qgj9909XtP6B4CDb0pdo/zLNuFEah8T/gRvFI
+E6+lPxTJ9jIVGtE/V5S0pDm09z+8Uw9maxThPzIfkpRTy/k/hlZDjQs5AkCI
+iTmbv4jwPyRx9TdoYQJA3YNC15Tj4D9Jw7Gx7r36P9IYGoeNOQJAXfreV/n2
+/D8Lc+TKBoH+PzOU44pz5Og/f+M2A+Nz8T8gI4RV2pOkPyeiZp2nGOQ/aqoc
+E++P+j8AAAAAAAAAAGnh2ETZLvE/VPm5FEOF9z/6wiOuXXzyPwgAZ9GIRvI/
+gtUYWouV8z9uOizu+m3qPyonkfyNx+Q/AtVImfAuAkDo9V0wp0gCQNQPEWOl
+/Pk/WwyXM6he+D/itjUgX0HzP3zGxdg=
+             "], {{
+               Directive[
+                Opacity[0.7], 
+                Hue[0.6, 0.7, 0.5]], 
+               GrayLevel[1], 
+               Arrowheads[0.], {
+                
+                ArrowBox[{{1, 17}, {1, 18}, {1, 19}, {1, 20}, {1, 21}, {2, 
+                 17}, {2, 18}, {2, 19}, {2, 21}, {2, 22}, {3, 17}, {3, 18}, {
+                 3, 20}, {3, 21}, {3, 23}, {4, 17}, {4, 18}, {4, 21}, {4, 
+                 22}, {4, 23}, {5, 17}, {5, 19}, {5, 20}, {5, 21}, {5, 24}, {
+                 6, 17}, {6, 19}, {6, 21}, {6, 22}, {6, 24}, {7, 17}, {7, 
+                 20}, {7, 21}, {7, 23}, {7, 24}, {8, 17}, {8, 21}, {8, 22}, {
+                 8, 23}, {8, 24}, {9, 18}, {9, 19}, {9, 20}, {9, 21}, {9, 
+                 25}, {10, 18}, {10, 19}, {10, 21}, {10, 22}, {10, 25}, {11, 
+                 18}, {11, 20}, {11, 21}, {11, 23}, {11, 25}, {12, 18}, {12, 
+                 21}, {12, 22}, {12, 23}, {12, 25}, {13, 19}, {13, 20}, {13, 
+                 21}, {13, 24}, {13, 25}, {14, 19}, {14, 21}, {14, 22}, {14, 
+                 24}, {14, 25}, {15, 20}, {15, 21}, {15, 23}, {15, 24}, {15, 
+                 25}, {16, 21}, {16, 22}, {16, 23}, {16, 24}, {16, 25}}, 
+                 0.029091490214643596`]}}, {
+               Directive[
+                Hue[0.6, 0.2, 0.8], 
+                EdgeForm[
+                 Directive[
+                  GrayLevel[0], 
+                  Opacity[0.7]]]], 
+               StyleBox[
+                DiskBox[1, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[2, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[3, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[4, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[5, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[6, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[7, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[8, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[9, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[10, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[11, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[12, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[13, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[14, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[15, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[16, 0.029091490214643596`], {
+                 RGBColor[
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 
+                  NCache[
+                   Rational[1, 3], 0.3333333333333333], 1]}, StripOnInput -> 
+                False], 
+               StyleBox[
+                DiskBox[17, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[18, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[19, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[20, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[21, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[22, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[23, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[24, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False], 
+               StyleBox[
+                DiskBox[25, 0.029091490214643596`], {
+                 RGBColor[1, 1, 0]}, StripOnInput -> False]}}]], 
+           MouseAppearanceTag["NetworkGraphics"]], AllowKernelInitialization -> 
+          False]], {
+        Background -> GrayLevel[0], FormatType -> TraditionalForm, FrameTicks -> 
+         None, DefaultBaseStyle -> "NetworkGraphics"}]}}, AutoDelete -> False,
+      GridBoxBackground -> {"Columns" -> {{
+          GrayLevel[0]}}}, 
+     GridBoxFrame -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+     GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+      FrameStyle -> GrayLevel[0.5]], "Grid"], 
+   StyleBox[
+    TagBox[
+     GridBox[{{"\"Bipartite graphs for two examples,\""}, {
+       "\" isolated vertices corresponding to zeros dropped\""}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}}, DefaultBaseStyle -> 
+      "Column", 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+    GrayLevel[1], Background -> GrayLevel[0], TextAlignment -> Center, 
+    StripOnInput -> False]},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2, ",", "Top", ",", 
+       RowBox[{"{", "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.923091254526904*^9, 3.923091265880247*^9}, 
+   3.9230912984311457`*^9, 3.923091344745904*^9, 3.9230914879396057`*^9, 
+   3.923091607277076*^9, {3.9230916801737127`*^9, 3.923091696433281*^9}, 
+   3.923091738895976*^9, 3.9230919300026703`*^9, {3.92309199709571*^9, 
+   3.923092052136622*^9}, 3.923092275213472*^9, 3.923092444210229*^9, 
+   3.9230924777650223`*^9, {3.923092512472683*^9, 3.923092564052606*^9}, {
+   3.9230926234021587`*^9, 3.923092648175665*^9}, 3.923092716888603*^9, 
+   3.923092789568818*^9, 3.923092828235777*^9, 3.923092888808443*^9, {
+   3.92309301386978*^9, 3.9230930331680803`*^9}, 3.92309311671565*^9, {
+   3.923093235160427*^9, 3.923093243802391*^9}, {3.9230933209026537`*^9, 
+   3.9230933435137043`*^9}, {3.923093427357832*^9, 3.923093437213496*^9}, {
+   3.923093652383027*^9, 3.9230936621233187`*^9}, 3.9230936976013308`*^9, {
+   3.9230937338411207`*^9, 3.923093744373994*^9}, {3.923093851255514*^9, 
+   3.923093887285355*^9}, 3.923093972117597*^9, 3.92309402208685*^9, 
+   3.923094061382729*^9},
+ CellLabel->
+  "Out[135]=",ExpressionUUID->"4e1810e7-cb63-41a4-8708-94df53f5d086"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+       "\"\<two-examples-bipartite-graphs.jpg\>\""}], "}"}], "]"}], ",", 
+    "tab", ",", 
+    RowBox[{"Background", "->", "Black"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.923094216608918*^9, 3.9230943320768013`*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"1de656b4-fece-46e3-85fd-ad022076ded2"]
 },
 WindowSize->{Full, Full},
 WindowMargins->{{Automatic, -1411}, {Automatic, -167}},
@@ -97417,7 +98891,7 @@ Cell[CellGroupData[{
 Cell[580, 22, 933, 20, 30, "Input",ExpressionUUID->"e0e830b1-5565-4e46-b7da-b683d319e72f"],
 Cell[1516, 44, 6120, 145, 113, "Output",ExpressionUUID->"40bfc00f-6ff6-49a0-90ef-ffc48de995c1"]
 }, Open  ]],
-Cell[7651, 192, 2651, 73, 104, "Input",ExpressionUUID->"9e70b71f-39c6-4284-a266-9763764ea6a9"],
+Cell[7651, 192, 2651, 73, 125, "Input",ExpressionUUID->"9e70b71f-39c6-4284-a266-9763764ea6a9"],
 Cell[CellGroupData[{
 Cell[10327, 269, 1779, 29, 30, "Input",ExpressionUUID->"a5c9d176-18ea-4517-a6c0-abf0c01fcc25"],
 Cell[12109, 300, 64016, 1254, 2458, "Output",ExpressionUUID->"d3279196-7a58-4d4f-ad91-e7b888b5aacc"]
@@ -97434,12 +98908,12 @@ Cell[82790, 1741, 634, 14, 30, "Input",ExpressionUUID->"863260ae-dd7f-40ce-94fc-
 Cell[83427, 1757, 33290, 667, 736, "Output",ExpressionUUID->"48fe648f-0a6e-4e73-85fe-6f38e22e1bb1"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[116754, 2429, 3820, 76, 90, "Input",ExpressionUUID->"9fe4d825-da04-4948-880c-ffda6a7c6387"],
+Cell[116754, 2429, 3820, 76, 111, "Input",ExpressionUUID->"9fe4d825-da04-4948-880c-ffda6a7c6387"],
 Cell[120577, 2507, 1047320, 31409, 3626, "Output",ExpressionUUID->"ff610e41-b588-4a56-8aaf-aabe4f5dae32"]
 }, Closed]],
 Cell[1167912, 33919, 851, 21, 26, "Input",ExpressionUUID->"4aa0e5a9-692a-4066-9352-7b99e27a875b"],
 Cell[CellGroupData[{
-Cell[1168788, 33944, 3086, 78, 102, "Input",ExpressionUUID->"41c9c632-f394-414e-83d5-ca1f1dabaf0b"],
+Cell[1168788, 33944, 3086, 78, 123, "Input",ExpressionUUID->"41c9c632-f394-414e-83d5-ca1f1dabaf0b"],
 Cell[1171877, 34024, 1047926, 31385, 1841, "Output",ExpressionUUID->"1f8d3099-6595-4d0c-bd34-7184686d34da"]
 }, Open  ]],
 Cell[2219818, 65412, 781, 21, 30, "Input",ExpressionUUID->"4341e182-18be-4953-b473-2dbaee6a2538"],
@@ -97535,15 +99009,15 @@ Cell[3067417, 90781, 757, 19, 34, "Input",ExpressionUUID->"fd13efe0-f354-48c4-a3
 Cell[3068177, 90802, 1042, 34, 38, "Output",ExpressionUUID->"25d6acd2-98ee-42c5-8ab7-001906862af3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3069256, 90841, 3095, 76, 84, "Input",ExpressionUUID->"94d20b1f-4ba0-45db-ac73-96bb82682bf9"],
+Cell[3069256, 90841, 3095, 76, 105, "Input",ExpressionUUID->"94d20b1f-4ba0-45db-ac73-96bb82682bf9"],
 Cell[3072354, 90919, 26364, 810, 269, "Output",ExpressionUUID->"028aa613-6ab1-47df-a576-6faace539c1f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3098755, 91734, 2051, 59, 46, "Input",ExpressionUUID->"b64e3e81-1214-45f6-958c-e8a1587bc81b"],
+Cell[3098755, 91734, 2051, 59, 76, "Input",ExpressionUUID->"b64e3e81-1214-45f6-958c-e8a1587bc81b"],
 Cell[3100809, 91795, 1360, 27, 391, "Output",ExpressionUUID->"028e2667-2dcc-4939-9374-83f4910e6d65"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3102206, 91827, 2632, 64, 34, "Input",ExpressionUUID->"5a3647f4-6ca5-45dd-a2c2-de934e5fe836"],
+Cell[3102206, 91827, 2632, 64, 58, "Input",ExpressionUUID->"5a3647f4-6ca5-45dd-a2c2-de934e5fe836"],
 Cell[3104841, 91893, 28796, 887, 255, "Output",ExpressionUUID->"f49a4d37-86c6-4585-8419-5768a1cc69e4"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -97681,7 +99155,7 @@ Cell[3215698, 95215, 668, 20, 34, "Input",ExpressionUUID->"51798b10-e41e-4625-9d
 Cell[3216369, 95237, 754, 20, 34, "Output",ExpressionUUID->"d59d5a66-7b03-4692-8ca4-e3a6505fd309"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3217160, 95262, 2515, 74, 76, "Input",ExpressionUUID->"b8b66c17-9a16-469e-906f-a54a09d3ca94"],
+Cell[3217160, 95262, 2515, 74, 105, "Input",ExpressionUUID->"b8b66c17-9a16-469e-906f-a54a09d3ca94"],
 Cell[3219678, 95338, 35509, 590, 511, 1250, 27, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"1484f417-2a54-41ad-baa2-19c5c45e054a"]
 }, Open  ]],
 Cell[3255202, 95931, 151, 3, 30, "Input",ExpressionUUID->"cf8edfe3-799a-453f-8eb0-34f0bd00b0b2"],
@@ -97720,8 +99194,14 @@ Cell[3300612, 97341, 561, 17, 34, "Output",ExpressionUUID->"721f5345-80c4-4ce5-8
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[3301210, 97363, 590, 17, 30, "Input",ExpressionUUID->"b119bd8e-6e96-4edd-8183-735cab81201b"],
-Cell[3301803, 97382, 443, 12, 82, "Output",ExpressionUUID->"c97e5d5d-93de-4b65-a322-03683fc8c9e4"]
-}, Open  ]]
+Cell[3301803, 97382, 443, 12, 34, "Output",ExpressionUUID->"c97e5d5d-93de-4b65-a322-03683fc8c9e4"]
+}, Open  ]],
+Cell[3302261, 97397, 1747, 46, 73, "Input",ExpressionUUID->"71dcab10-4c83-413a-ab76-670da0389436"],
+Cell[CellGroupData[{
+Cell[3304033, 97447, 7897, 181, 244, "Input",ExpressionUUID->"bbdcad32-7b83-4f4f-b7bc-065441297011"],
+Cell[3311933, 97630, 56026, 1223, 639, "Output",ExpressionUUID->"4e1810e7-cb63-41a4-8708-94df53f5d086"]
+}, Open  ]],
+Cell[3367974, 98856, 494, 13, 85, "Input",ExpressionUUID->"1de656b4-fece-46e3-85fd-ad022076ded2"]
 }
 ]
 *)

@@ -1,38 +1,21 @@
 \subsection{Application to \textbf{2}-level polytopes} \label{sec2level}
 For convenience, we restate our main result concerning two-level polytopes.
 \twoLevelNew*
-\noindent Let us start with several simple observations, the proofs of which are given in Appendix~\ref{appendix} for completeness:
-\begin{restatable}[]{lemma}{sufficientFractionLemma}\label{78sufficientLemma}
-    Let $S_1, S_2 \subseteq [d-1]$ be such that $|S_2 \setminus S_1| > 1$. Then the family 
-    \[
-        \bigl\{S \subseteq [d-1]:\: |S\cap S_2|-|S\cap S_1| \in \{-1, 0, 1\}\bigr\}
-    \]
-    contains at most $\frac{7}{8}\cdot 2^{d-1}$ sets. 
-\end{restatable}
+%\noindent Let us start with several simple observations, the proofs of which are given in Appendix~\ref{appendix} for completeness:
 
-\begin{restatable}[]{lemma}{smallDifferenceLemma}\label{smallDifferenceLemma}
-    Let $\sss$ be a family of subsets of $[d-1]$ such that $|\sss| = d$ and 
-    \[
-        \forall S_1, S_2 \in \sss:\:|S_2\setminus S_1|\leq 1.
-    \]
-    Then either $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$.
-\end{restatable}
+%\sufficientFractionLemma*
+%\smallDifferenceLemma*
 
-\begin{restatable}[]{lemma}{crossPolyRepresentation}\label{crossPolyRepr}
-    Let ${a_1, \ldots, a_{d-1}, v}$ be a basis of $\R^d$. Define
-    \[
-        s=v+\sum_{i=1}^{d-1}a_i\text{ and }P=\operatorname{Conv}\Bigl(\{\zero, a_1, \ldots, a_{d-1}\}\cup\{s, s-a_1, \ldots, s-a_{d-1}\}\Bigr).
-    \]
-    Then $P$ is affinely isomorphic to the cross-polytope.
-\end{restatable}
+%\crossPolyRepresentation*
 
 \begin{proof}[Proof of Theorem \ref{two_level_new_bound}]
-    The only $2$-level polytopes on the plane are triangles and parallelograms, thus the statement is trivial for $d=2$ and we will further assume $d > 2$. Let us denote $V=f_0(P)$ and $F=f_{d-1}(P)$ for conciseness. Shift $P$ so that $0$ is a vertex of $P$. Let $\aaa$ denote the vertex set of $P$ and $\bb'$ denote the minimal set of vectors such that every facet of $P$ lies in a hyperplane $\{x\,:\,\langle x,b \rangle = \delta \}$ for some $\delta\in\{0,1\}$ and $b\in\bb'$. Let $\bb = \bb' \cup \{0\}$.
+%    \st{The statement is trivial on the plane} \textcolor{red}{You mean, it coincides with the original bound?} \textcolor{olive}{ they coincide for $d=2,3$, yes, though I meant this: The only $2$-level polytopes on the plane are triangles and parallelograms, thus the statement is trivial for $d=2$ and we will further assume $d > 2$. Replaced:}\st{, so we assume $d > 2$}. \textcolor{cyan}{
+For $d=2,3$ the desired bound coincides with the one in Theorem~\ref{two_level_old_bound}, so we will further assume $d>3$. Let us denote $V=f_0(P)$ and $F=f_{d-1}(P)$ for conciseness. Shift $P$ so that $0$ is a vertex of $P$. Let $\aaa$ denote the vertex set of $P$ and $\bb'$ denote the minimal set of vectors such that every facet of $P$ lies in a hyperplane $\{x\,:\,\langle x,b \rangle = \delta \}$ for some $\delta\in\{0,1\}$ and $b\in\bb'$. Let $\bb = \bb' \cup \{0\}$.
     If every vector in $\bb'$ defines one facet of $P$, we are done by Theorem \ref{d_plus_one_two_d}: 
     \[V\cdot F < \left|\aaa\right|\cdot\left|\bb\right| \leq (d+1)2^d<(d-1)2^{d+1}+8(d-1).\]
     Otherwise, let $b_d\in\bb'$ define two facets of $P$. If the facet $P\cap b_d^{\bot}$ contains less half of the vertices of $P$, shift $P$ again so that zero becomes a vertex from the other (parallel) facet, reintroduce families $\aaa$, $\bb$ as described above and select $b_d\in\bb'$ that now defines the same two facets. %This will have the effect of replacing some vectors in $\bb$, including $b_d$, by their opposites.
     Now, $P\cap b_d^{\bot}$ contains at least half of the vertices of $P$. Introduce $\aaa_i$, $\pi$ and $\bb_i$ as in Section~\ref{secStability}. Note that because we've ensured $|\aaa_0|\geq|\aaa_1|$, no transformations are required in Claim~\ref{cl1}, and we have $\la a, b\ra \in \{0,1\}$ for all $a\in\aaa$, $b\in\bb$.
-    Since $\operatorname{dim}(\aaa_1)=d-1$, we have $\bb_1=\{0,b_d\}$ and $\left|\pi(\bb)\right|=\left|\bb_*\right|+1$, which means 
+    Since $\operatorname{dim}(\aaa_1)=d-1$, we have $\bb_0 = \emptyset, \bb_1=\{0,b_d\}$ and $\left|\pi(\bb)\right|=\left|\bb\right|-1$, which means 
     \begin{equation}\label{produc_when_fuldim}
         \left|\aaa\right|\cdot\left|\bb\right|=\left|\aaa_0\right|\cdot\left|\pi(\bb)\right|+\left|\aaa_1\right|\cdot\left|\pi(\bb)\right|+\left|\aaa\right|.
     \end{equation}
@@ -59,17 +42,18 @@ For convenience, we restate our main result concerning two-level polytopes.
             \aaa_1 = \{v+\sum_{j \in S}a_j:\:S\in \sss\}
         \end{equation}
     
-        for some family $\sss$ of subsets of $[d-1]$ with $|\sss| = d$. Our goal is to show that ${\sss= \{S\subseteq[d-1]:\:|S|\geq d-2\}}$, as then Lemma~\ref{crossPolyRepr} would imply that $P$ is affinely isomorphic to the cross-polytope, and we would be done. For $T \subseteq [d-1]$ denote $\sigma_T=\sum_{j\in T} a_j$ and note that, given $b_S\in \bb$,
+        for some family $\sss$ of subsets of $[d-1]$ with $|\sss| = d$. Our goal is to show that ${\sss= \{S\subseteq[d-1]:\:|S|\geq d-2\}}$, as then Lemma~\ref{crossPolyRepr} would imply that $P$ is affinely  isomorphic to the cross-polytope, and we would be done. For $T \subseteq [d-1]$ denote $\sigma_T=\sum_{j\in T} a_j$ and note that, given $b_S\in \bb$,
         \[
             \la \sigma_T, b_S \ra = \la \sigma_T, \pi(b_S) \ra = \Bigl< \sigma_T, \sum_{j\in S}\pi(b_{\{j\}}) \Bigr> = \Bigl< \sum_{j\in T} a_j, \sum_{j\in S}b_{\{j\}} \Bigr> = |T \cap S|.
         \]
-        Now assume, looking for a contradiction, that $\exists S_1, S_2 \in \sss:\:|S_2\setminus S_1| > 1$. Inequality \eqref{piBisLarge} and Lemma~\ref{78sufficientLemma} imply that there exists $b_S\in \bb$ such that $|S \cap S_2| - |S \cap S_1| > 1$. But \eqref{A1-representation}
+        Arguing indirectly, assume that $\exists S_1, S_2 \in \sss:\:|S_2\setminus S_1| > 1$. Inequality \eqref{piBisLarge} and Lemma~\ref{78sufficientLemma} imply that there exists $b_S\in \bb$ such that $|S \cap S_2| - |S \cap S_1| > 1$. But \eqref{A1-representation}
         means that
         \begin{align*}
             \{-1,0,1\} & \ni \la v+\sum_{j \in S_2}  a_j\,,\,b_{S}\ra - \la v+\sum_{j \in S_1} a_j\,,\, b_{S} \ra = \la \sigma_{S_2} - \sigma_{S_1}\,,\, b_{S} \ra 
             = |S_2 \cap S| - |S_1 \cap S|,
         \end{align*}
-        a contradiction. Therefore, $\forall S_1, S_2 \in \sss:\:|S_2\setminus S_1| \leq 1$, which by Lemma \ref{smallDifferenceLemma} implies that either $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$. In case of the former, \eqref{A1-representation} and Lemma~\ref{crossPolyRepr} imply that $P$ is affinely isomorphic to the cross-polytope, and we are done. Finally, assume, looking for a contradiction, that $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$. Then \eqref{A1-representation} implies that $\aaa_1$ is simply $\aaa_0$ shifted by $v$. $P$ is therefore affinely isomorphic to the cartesian product of a segment with a $(d-1)$-dimentional simplex, thus $P$ has $d+1$ facets and $|\pi(\bb)| = d \leq \frac{7}{8} 2^{d-1}$, contradicting \eqref{piBisLarge}.
+         
+        a contradiction. Therefore, $\forall S_1, S_2 \in \sss:\:|S_2\setminus S_1| \leq 1$, which by Lemma \ref{smallDifferenceLemma} implies that either $\sss = \{S\subseteq[d-1]: |S| \geq d-2\}$ or $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$. In case of the former, \eqref{A1-representation} and Lemma~\ref{crossPolyRepr} imply that $P$ is affinely isomorphic to the cross-polytope, and we are done. Finally, assume, looking for a contradiction, that $\sss = \{S\subseteq[d-1]: |S| \leq 1\}$. Then \eqref{A1-representation} implies that $\aaa_1$ is simply $\aaa_0$ shifted by $v$. $P$ is therefore affinely isomorphic to the cartesian product of a segment with a \mbox{$(d-1)$-dimentional} simplex. Therefore, $P$ has $d+2$ facets and $|\pi(\bb)| = d+1 \leq \frac{7}{8} 2^{d-1}$ for $d>3$, contradicting \eqref{piBisLarge}.
     \end{enumerate}
 \end{proof}
 
